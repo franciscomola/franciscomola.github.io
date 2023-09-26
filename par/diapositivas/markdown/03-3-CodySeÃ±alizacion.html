@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LA CAPA FÍSICA: SEÑALIZACIÓN Y CODIFICACIÓN</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# **RAL  -   Unidad 3**
+# **LA CAPA FÍSICA: SEÑALIZACIÓN Y CODIFICACIÓN**
+ 
+
+---
+
+# **Codificación y Modulación**
+
+ 
+![Codificación y Modulación](03-3-02.jpg "Codificación y Modulación")
+ 
+
+---
+
+# **Señalización y Codificación**
+ 
+* **Señalización**: técnicas para <u>trasmitir señales</u>:
+
+	- en banda base -> sin modulación 
+	- en banda ancha -> con modulación
+	
+* **Codificación**: técnicas para <u>convertir la naturaleza de los datos</u>
+
+	- analógicos a digitales -> muestreo+codificación 
+	- digitales a digitales -> recodificación
+	
+* Con estas técnicas podemos combinar la transmisión de datos analógicos / digitales como señales analógicas / digitales
+ 
+---
+
+# **1. Dato digital, Señal digital**
+
+* **Señal digital** 
+
+	- secuencia de pulsos de tensión discretos y discontinuos (elementos de señal)
+	- los datos digitales (símbolos) se transmiten utilizando uno o varios elementos de señal (pulsos):
+		- en el caso más sencillo: un pulso, un bit; pero no siempre es así
+
+* **Velocidad de modulación o tasa de señal**
+
+	- tasa a la que cambia el nivel de la señal 
+	- en **baudios** = pulsos (símbolos) por segundo
+	- el nombre de baudio se debe a Emile Baudot, inventor del código telegráfico Baudot 
+
+---
+
+# **Técnicas de señalización**
+
+* **Sin retorno a nivel cero**: 
+
+	- NRZ-L (Nonreturn to Zero-Level)
+	- NRZI (Nonreturn to Zero Inverted)
+
+* **Binario multinivel**:
+
+	- Bipolar AMI
+	- Pseudoternarios
+
+* **Bifase**:
+
+	- Manchester
+	- Manchester diferencial 
+
+* **Aleatorización o mapeo de bits**:
+
+	- B8ZS, HDB3, ... 
+
+---
+
+# **NRZ – L/I**
+
+![NRZ – L/I](03-3-06.jpg "NRZ – L/I")
+
+ 
+
+---
+
+# **Bipolar-AMI y Pseudoternario**
+
+![Bipolar-AMI y Pseudoternario](03-3-07.jpg "Bipolar-AMI y Pseudoternario")
+
+
+---
+
+# **Manchester** 
+
+![Manchester](03-3-08.jpg "Manchester") 
+
+ 
+
+---
+
+# **Manchester Diferencial** 
+
+ 
+![Manchester Diferencial](03-3-09.jpg "Manchester Diferencial")
+ 
+
+---
+
+# **Tasa de modulación NRZ/bifase**
+
+ 
+![Tasa de modulación NRZ/bifase](03-3-10.jpg "Tasa de modulación NRZ/bifase")
+ 
+
+---
+
+# **2. Dato digital, Señal analógica**
+
+*   P.e., Sistema de telefonía público
+
+	- usa un ancho de banda de 300Hz a 3400Hz, que no es apropiado para la trasmisión de señales digitales 
+	- se soluciona usando la modulación mediante un modem(modulator-demodulator)
+
+*   La modulación es la modificación de uno o varios de los tres parámetros fundamentales de una señal **portadora** (amplitud, frecuencia o/y fase) según va cambiando la señal **moduladora** (y de esta manera transporta los datos que queremos transmitir)
+
+
+---
+
+# **Técnicas de modulación**
+
+* *Amplitude shift keying* (**ASK**) o Modulación por desplazamiento de amplitud
+
+* *Frequency shift keying* (**FSK**) o Modulación por desplazamiento de frecuencia
+
+* *Phase shift keying* (**PSK**) o Modulación por desplazamiento de fase
+
+* En todos los casos, la señal resultante ocupa un ancho de banda centrado en torno a la frecuencia de la portadora
+
+
+---
+
+# **Técnicas de modulación- Diagrama**
+
+ 
+![Técnicas de modulación- Diagrama](03-3-13.jpg "Técnicas de modulación- Diagrama")
+ 
+
+---
+
+# **ASK**
+
+*   Los valores se representan por diferentes amplitudes de la portadora
+
+*   Usualmente, se representa un bit por la presencia o ausencia de portadora 
+
+*   Susceptible a cambios repentinos de la ganancia (es decir, al ruido o a las interferencias)
+
+*   Ineficiente: hasta 1200bps en líneas de calidad telefónica
+
+*   Usado para la trasmisión en fibras ópticas 
+
+
+
+---
+
+# **FSK**
+
+*   La forma más común es FSK binario (BFSK):
+
+	- dos valores binarios representados por dos diferentes frecuencias (próximas a la frecuencia de la portadora )
+
+*   Menos susceptible a errores que ASK
+
+*   Hasta 1200bps en líneas de calidad telefónica
+
+*   Radio de alta frecuencia (3 a 30MHz) 
+
+*   También a más altas frecuencias en LANs con cable coaxial
+
+*   FSK Múltiple (MFSK): usa + frecuencias
+
+	- cada elemento de señal representa más de un bit (¿cuántos?)
+
+ 
+---
+
+# **FSK-modem ([bell system 108](http://nemesis.lonestar.org/reference/telecom/modems/modulations.html))**
+
+ 
+![FSK-modem](03-3-16.jpg "FSK-modem")
+ 
+
+---
+
+# **PSK**
+
+*   La fase de la señal portadora se desplaza para representar datos
+
+*   PSK Binario (BPSK)
+
+	- dos fases (0º y 180º) representando un 0 y 1 binario
+	- requiere que el receptor compare la señal que le llega con una de referencia 
+
+*   PSK Diferencial (DPSK)
+
+	- la fase se desplaza en relación a la fase anterior para indicar un cambio de bit
+	- no requiere la comparación con la señal de referencia
+
+
+---
+
+# **PSK Diferencial** 
+
+ 
+![PSK Diferencial](03-3-18.jpg "PSK Diferencial")
+ 
+
+---
+
+# ** PSK en cuadratura (QPSK)**
+
+* Se usan desplazamientos de π/2 (90<sup>o</sup>)
+
+	- 4 símbolos (o elementos de señal), es decir, dos bits
+
+* La secuencia de bits de entrada se divide de forma alterna en dos, modulando con BPSK 
+
+	- una portadora en fase (**I**) 
+	- y otra en cuadratura (**Q**) (desfasada 90º con respecto a I) 
+	- el resultado es la suma de ambas señales
+
+* La modulación 8-PSK (8 símbolos con desfases de 45º) y superiores no suele usarse por tener menor eficacia que QAM 
+
+* Uso de PSK y sus variantes en 802.11b/g, Bluetooth, RFID, ... 
+
+
+---
+
+# **QAM (Quadrature Amplitude M)** 
+
+* [QAM](http://es.wikipedia.org/wiki/Modulación_de_amplitud_en_cuadratura) se usa en el ADSL, Cable-modem, TDT y otros protocolos inalámbricos
+
+* Combinación de ASK y PSK
+
+	- se puede considerar una extensión de QPSK
+	- se usa 2 portadoras de la misma frecuencia, una 
+
+* Se parte del mismo punto que en QPSK desplazada 90° respecto de la otra (**I** y **Q**)
+
+	- cada portadora se modula usando **ASK** 
+	- se suman las 2 señales resultantes y se envía a través del medio
+
+---
+
+# **QAM - Niveles**
+
+* Si se usa ASK de 2 niveles:
+
+	- cada una de las 2 portadoras puede tomar una de 2 amplitudes: **QAM-4**, equivale a **QPSK**
+
+* Si se usa ASK de 4 niveles:
+
+	- cada una de las 2 portadoras puede tomar una de 4 amplitudes: **QAM-16** 
+	- la secuencia combinada de ambas portadoras toma 1 de 16 estados (o símbolos)
+	- ver [simulación de los errores](http://webdemo.inue.uni-stuttgart.de/webdemos/02_lectures/uebertragungstechnik_1/qam_constellation_diagram_from_snr/index.php?id=3#) que se producen en la transmisión [QAM-16](http://en.wikipedia.org/wiki/Quadrature_amplitude_modulation#Quantized_QAM) en función del ruido 
+
+* Se usan sistemas de 64, 128, 256 , ... niveles
+
+* Se mejora la tasa de datos para un ancho de banda dado, pero aumenta la tasa de error potencial
+ 
+
+---
+
+# **3. Dato analógico, Dato digital**
+ 
+* [Conversión Analógica-Digital](https://es.wikipedia.org/wiki/Conversi%C3%B3n_anal%C3%B3gica-digital) o digitalización
+
+* Para facilitar su procesamiento (compresión, encriptación, ...) y transmisión como señal digital
+
+* Pero también los datos digitales resultantes pueden ser transmitidos como señal analógica, mediante modulación 
+
+* La conversión analógica a digital se hace usando un **codec**:
+
+	- PAM (Pulse Amplitude Modulation)
+		- modulación por amplitud de impulsos
+	- PCM (Pulse code modulation)
+		- modulación por impulsos codificados
+	- DM (Delta modulation)
+
+---
+
+# **Digitalizando Datos Analógicos**
+
+ 
+![Digitalizando Datos Analógicos](03-3-23.jpg "Digitalizando Datos Analógicos")
+ 
+---
+
+# **PAM y PCM**
+
+* [Teorema de muestreo de Nyquist](https://es.wikipedia.org/wiki/Teorema_de_muestreo_de_Nyquist-Shannon): si una señal con un <u>espectro limitado</u> se muestrea a intervalos regulares a una tasa <u>doble de la frecuencia más alta</u> de la señal, 
+los <u>muestreos exactos</u> (ideales) contienen toda la información de la señal original, o sea, <u>no se pierde nada al reconstruirla</u>
+
+	- no hay señales de espectro limitado ni muestreos exactos 
+	- el CD-Audio registra frecuencias de 20KHz y se muestrea => mayor frec. de muestreo (antialiasing) 44100 veces por seg. => 10% de margen 
+
+* Si las muestras se codifican en pulsos de amplitud proporcional (aproximada) a la de la señal analógica, tenemos **PAM** de n bits (cuantificación), tenemos **PCM**
+
+* Si a cada muestra se le asigna un valor digital o código 
+
+---
+
+# **PCM**
+
+* P.e., un sistema de muestras de 4 bits da 16 niveles, de 8 bits da 256 niveles
+
+* P.e., 8000 muestras por segundo de 8 bits cada una da 64kbps
+
+* La cuantificación, al ser siempre aproximada, hará que la señal no se pueda recuperar con exactitud. Esto es el error o ruido de cuantificación:
+
+	- SQNR<sub>db</sub> ~ 6 * N + 1,76 dB  (N = nº de bits/muestra)
+	- es decir, cada bit adicional aumenta SQNR en 6dB (x4)
+
+* Calidad comparable a la analógica
+
+* Se suele **comprimir**, como en el caso del [mp3](https://tecnologia.elpais.com/tecnologia/2016/03/17/actualidad/1458208457_666713.html)
+
+* [Código](https://github.com/javige/fft/blob/master/fftplot.py) para aplicar la [FFT](https://es.wikipedia.org/wiki/Transformada_r%C3%A1pida_de_Fourier) a un archivo wav
+
+---
+# **PCM - Ejemplo**
+
+![PCM](03-3-26.jpg "PCM") 
+
+---
+
+# **Modulación Delta** 
+
+* La entrada analógica es aproximada por una función en escalera:
+	
+	- sube o baja un nivel o escalón (δ) en cada intervalo de muestreo: comportamiento binario 
+	- especialmente útil para señales que no requieren mucha calidad, como en el caso de la voz
+	- puede implementarse usando componentes de bajo coste 
+
+*   Se utilizan variaciones de esta técnica junto con el oversampling (o sobremuestreo, por encima del límite de Nyquist) para evitar el aliasing (altas frecuencias no deseadas)
+
+---
+
+# **Modulación Delta  - ejemplo**
+
+![Modulación Delta  - ejemplo](03-3-28.jpg "Modulación Delta  - ejemplo") 
+
+
+---
+
+# **4. Dato analógico, Señal analógica**
+
+* ¿Por qué modular las señales analógicas?
+
+	- con frecuencia más altas se puede conseguir transmisiones más eficientes 
+	- permite multiplexión por división de frecuencia 
+
+* Tipos de modulación
+
+	- amplitud
+	- frecuencia
+	- fase
+
+---
+
+# **Modulación Analógica**
+ 
+![Modulación Analógica](03-3-30.jpg "Modulación Analógica")
+ 
+ 
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WLANs</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+#**PAR - Unidad 6**
+  
+#**Conexión de LANs: protocolos de la capa de enlace de datos:**
+
+#**IEEE 802.11 - WLAN y 802.15- WPAN**
+
+ 
+---
+#**[Visión General](https://www.coursera.org/learn/computer-networking/lecture/RgXEN/introduction-to-wireless-networking-technologies)**
+
+* Uso de transmisión de radio:
+
+	 - para sustituir a redes cableadas preexistentes
+	 - para facilitar la movilidad de los usuarios
+	  
+* Aplicaciones según el [área de cobertura](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#topologia-celular-o-en-celdas):
+
+	 - redes personales inalámbricas (Bluetooth):~10m
+	 - redes locales inalámbricas (Wifi): ~100m
+	 - redes inalámbricas metropolitanas (WiMAX) y de telefonía móvil (GSM/UMTS): hasta decenas kms.
+	 - futura integración de estos y otros sistemas inalámbricos
+
+* Estándares: [comparativa](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#estandares)  
+
+ 
+---
+#**[WLANs](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#wlan-wi-fi) - Aplicaciones**
+
+* Ampliación de redes LAN (modo infraestructura)
+
+	 - rebaja costes
+	 - redes mixtas
+
+* Interconexión de edificios próximos
+
+	 - conexión punto a punto de Puntos de accesos (A.P., o *bridge* inalámbrico)
+
+* Acceso nómada (*Road warriors*)
+
+* Creación de redes P2P temporales (modo *adhoc*)
+
+
+---
+#**Extensión LAN - celda única** 
+
+![Extensión LAN - celda única](06-2-04.jpg "Extensión LAN - celda única")
+ 
+---
+#**Extensión LAN - celdas múltiples** 
+
+![Extensión LAN - celda múltiples](06-2-05.jpg "Extensión LAN - celda múltiples") 
+
+---
+#**WLAN - Modo Infraestructura**  
+
+![WLAN - Modo Infraestructura](06-2-06.jpg "WLAN - Modo Infraestructura") 
+
+---
+#**WLAN - Modo Adhoc**  
+
+![WLAN - Modo Adhoc](06-2-07.jpg "WLAN - Modo Adhoc") 
+
+---
+#**WLAN - Requerimientos**
+
+* Rendimiento 	 - uso eficiente del medio inalámbrico
+
+* Nº de nodos - cientos de nodos en varias celdas
+
+* Conexión a la LAN troncal 
+
+* Área de servicio  - de 100 a 300 m
+
+* Consumo de baja potencia 
+
+* Robustez y seguridad en la transmisión
+
+* Funcionamiento junto a redes adyacentes
+
+* Funcionamiento sin licencia de transmisión
+
+* Traspasos (handoff)/itinerancia (roaming)
+
+* Configuración dinámica - inserción, eliminación y reubicación de sistemas finales sin afectar a otros usuarios
+
+
+---
+#**[IEEE 802.11](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#normas-802-11-mas-importantes)**
+
+* **WLANs infrarrojas** (IR) 
+
+	 - celda individual de LAN IR limitada por paredes
+	 - IR no atraviesan las paredes 
+
+* **WLANs de radiofrecuencia** (R.F.) y **espectro expandido** (E.E.) 
+
+	 - opera en la banda ISM (industrial, scientific, and medical)
+	 - no se requiere licencia de uso 
+
+---
+#**[WLANs RF](http://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/Borderless_Networks/Unified_Access/CMX/CMX_RFFund.html)**
+
+* Se suelen organizar en múltiples celdas  
+
+* Las celdas adyacentes utilizan diferentes frecuencias para evitar interferencias  
+
+* Configuraciones:
+
+	 - con nodo central (access point) o **infraestructura** 
+
+		* conectado a una LAN alámbrica
+
+		* conecta las estaciones a la LAN alámbrica y a otras celdas
+
+		* puede hacer traspaso automático entre celdas
+
+		* puede optarse por un MAC sin contienda o con contienda
+
+	 - p2p (peer-to-peer) o **ad hoc**
+
+		* no necesita nodo central
+		
+		* MAC con contienda: algoritmo CSMA para resolver las colisiones
+
+
+---
+#**[WLANs RF - Transmisión](https://www.youtube.com/watch?v=qyCsqlkyZn8&list=PLSvxAUzJ-XSd1FdOTeAIQuyTmccuv5RyS&index=2)**
+
+* La regulación del espectro difiere entre países
+
+* [Bandas ISM](https://en.wikipedia.org/wiki/ISM_band) (industrial científico médica):
+
+	 - Emisiones de baja potencia sin necesidad de licencia
+	 
+	 - [Porqué no es buena idea aumentar la potencia wifi del router para tener más cobertura](https://bandaancha.eu/articulos/que-no-buena-idea-aumentar-potencia-wifi-10423)
+	 
+
+
+* Transmisión
+
+	- [Muchos dispositivos](https://en.wikipedia.org/wiki/List_of_2.4_GHz_radio_use) en la banda de 2.4 GHz; menos competencia, por ahora, en la banda de 5.8 GHz
+
+* [Antenas](https://es.wikibooks.org/wiki/Planificaci%C3%B3n_y_Administraci%C3%B3n_de_Redes/Tema_7/Texto_completo#Antenas)
+
+	 - [Importancia de la antena usada y su orientación](https://www.youtube.com/watch?v=qyCsqlkyZn8&list=PLSvxAUzJ-XSd1FdOTeAIQuyTmccuv5RyS&index=1)
+	 - [¿Es mejor un router wifi si tiene muchas antenas MIMO?](https://bandaancha.eu/articulos/mejor-router-wifi-tiene-muchas-antenas-9810)
+
+ 
+---
+#**[IEEE 802.11 - Estándares](http://en.wikipedia.org/wiki/802.11#Standard_and_amendments)**
+
+![IEEE 802.11 - Estándares](06-2-12.jpg "IEEE 802.11 - Estándares")
+
+---
+#**Pila de Protocolos 802.11**
+
+ 
+![Pila de Protocolos 802.11](06-2-13.jpg "Pila de Protocolos 802.11") 
+ 
+
+---
+#**IEEE 802.11 - Capa Física** 
+
+|	|802.11| 802.11a| 802.11b| 802.11g|
+|---	|:---:	|:---:	|:---:	|:---:	|
+|**Available bandwidth**| 83.5MHz| 300MHz| 83.5MHz| 83.5MHz|
+|**Unlicensed frequency of operation**| 2.4-2.4835GHz DSSS,FHSS| 5.15-5.35GHz OFDM 5.725-5.825GHz OFDM | 2.4-2.4835GHz DSSS| 2.4-2.4835GHz DSSS,OFDM|
+|**Number of non-overlapping channels**| 3 (indoor/outdoor)|4 indoor (indoor/outdoor) 4 outdoor| 3 (indoor/outdoor)| 3 (indoor/outdoor)|
+|**Data rate per channel**| 1, 2 Mbps| 6, 9, 12, 18, 24, 36, 48, 54Mbps| 1, 2, 5.5, 11Mbps| 1, 2, 5.5, 6, 9, 11, 12, 18, 24, 36, 48, 54Mbps|
+|**Compatibility**| 802.11| Wi-Fi5| Wi-Fi| Wi-Fi at 11Mbps and below|
+
+
+---
+#**IEEE 802.11 - FHSS**
+
+* E. E. por Salto de Frecuencia 
+
+	 - banda ISM 2,400-2,495 GHz dividida en 95 canales de 1MHz: el 1º (2,401GHz), ... 
+
+	 - en Europa se usan del 2 al 79 
+	 
+	 - la señal salta entre múltiples canales basándose en una secuencia pseudo-aleatoria (pseudo-ruido) establecida en el estándar
+
+	 - el tiempo de permanencia es de unos 0,4 segundos y el salto dura menos de 224 microsegundos 
+
+* Velocidad de 1 y 2 Mbps
+
+* Modulación: 
+
+	 - BFSK para 1 Mbps
+
+	 - MFSK-4 para 2 Mbps
+
+
+---
+#**IEEE 802.11 - DSSS**
+
+* E. E. de Secuencia Directa 
+
+* Banda ISM 2.4 GHz a 1 y 2 Mbps 
+
+* Depende de ancho de banda asignado por los distintas regulaciones nacionales
+
+	 - banda ISM 2,412-2,484GHz en 14 canales de 5MHz 
+
+	 - se usan 13 canales en Europa (11 en USA y 14 en Japón)
+
+	 - por cada canal la energía se propaga en una banda de 22MHz, por lo que debemos asignar las redes solapadas a canales suficientemente separados (p.e., 1, 6 y 11)
+
+* Multiplexión:
+
+	 - cada bit se transmite como 11 chips (secuencia Barker)
+
+* Modulación:
+
+	 - DBPSK para 1Mbps 
+	 
+	 - DQPSK para 2Mbps 
+
+---
+#**IEEE 802.11a**
+
+* Usa la banda ISM de [5GHz](https://www.youtube.com/watch?v=tXY-U3gTLHc&list=PLSvxAUzJ-XSd1FdOTeAIQuyTmccuv5RyS&index=3) 
+
+* Multiplexión:
+
+	 - OFDM (orthogonal FDM): FDM de canales superpuestos entre los que se reparte la transmisión de los bits 
+
+	 - [canales](http://en.wikipedia.org/wiki/List_of_WLAN_channels#5.C2.A0GHz_.28802.11a.2Fh.2Fj.2Fn.29) de 20 Mhz compuesto por 52 subportadoras (48 de datos y 4 piloto) separadas por 0,3125MHz 
+
+	 - cada canal usa códigos de convolución para corregir errores hacia delante (FEC) 
+
+* Modulación:
+
+	 - cada subportadora puede usar BPSK, QPSK, 16QAM o 64QAM 
+
+* Velocidades de 6, 9, 12, 18, 36, 48 y 54  Mbps
+ 
+ 
+---
+#**IEEE 802.11b**
+
+* Usa la banda de 2.4GHz
+
+	 - 14 canales de 5MHz 
+
+* Extensión de DSSS:
+
+	 - usa CCK (Complementary Code Keying) en vez de las secuencias Barker
+
+	 - que da una tasa de datos mayor con el mismo ancho de banda y tasa de chips
+
+* Ancho de banda de la transmisión por canal de 22MHz
+
+	 - hay solapamiento entre canales, se deben dejar al menos 4 libres
+
+* Tasas de datos de 1, 2, 5.5 y 11 Mbps  
+
+---
+#**IEEE 802.11g**
+
+* Opera en la banda de 2.4GHz 
+
+* Extensión de alta velocidad del 11b (compatible) 
+
+* Combina los esquemas de las capas físicas usadas en 802.11, 11b y 11a (OFDM) para proporcionar servicios a distintas tasas de datos
+
+* 14 [canales solapados](http://en.wikipedia.org/wiki/List_of_WLAN_channels#2.4.C2.A0GHz_.28802.11b.2Fg.2Fn.29) y tasas de datos de 1, 2, 5.5 y 11 Mbps y 6, 9, 12, 18, 36, 48 y 54  Mbps
+
+	 - hay solapamiento entre canales, se deben dejar al menos 4 libres
+
+ 
+---
+#**Tasa de datos vs. distancia (m)**  
+
+| Data Rate (Mbps)| 802.11b| 802.11a| 802.11g|
+|---	|:---:	|:---:	|:---:	|
+|1 | 90+| -| 90+|
+|2 | 75| -| 75|
+|5.5(b)/6(a/g)| 60| 60+| 65|
+|9 | -| 50| 55|
+|11(b)/12(a/g)| 45| 50| 50|
+|18 | -| 40| 50|
+|24 | -| 30| 45|
+|36 | -| 25| 35|
+|48 | -| 15| 25|
+|54 | -| 10| 20|
+
+
+---
+#**IEEE 802.11 - Terminología**
+| | |
+---	|:---:	|
+**Access point (AP)**| Any entity that has station functionality and provides access to the distribution system via the wireless medium for associated stations|
+**Basic service set (BSS)**| A set of stations controlled by a single coordination function|
+**Coordination function**| The logical function that determines when a station operating within a BSS is permitted to transmit and may be able to receive PDUs|
+**Distribution system (DS)**| A system used to interconnect a set of BSSs and integrated LANs to create an ESS|
+**Extended service set (ESS)**| A set of one or more interconnected BSSs and integrated LANs that appear as a single BSS to the LLC layer at any station associated with one of these BSSs|
+**MAC protocol data unit (MPDU)**| The unit of data exchanged between two peer MAC entites using the services of the physical layer|
+**MAC service data unit (MSDU)**| Information that is delivered as a unit between MAC users|
+
+---
+#**IEEE 802.11 - Arquitectura**
+
+ 
+![WLAN - Modo Adhoc](06-2-22.jpg "WLAN - Modo Adhoc") 
+ 
+
+---
+#**IEEE 802.11 - BSS**
+
+* **BSS** (basic service set) es un conjunto de estaciones que se comunican entre sí. Hay 2 tipos:
+
+	 - **BSS Independiente** (IBSS) o en modo adhoc o sin punto de acceso: todos los nodos se comunican directamente entre sí y deben encontrarse al alcance directo unos de otros.
+
+	 - **BSS de Infraestructura** (BSS) o con punto de acceso, de manera que los nodos que lo forman no tienen que estar unos al alcance directo de los otros.     
+
+* En un BSS todas las tramas entre nodos pasan por el AP, permitiendo cosas como:
+
+	 - comunicación entre nodos que no 'se ven' 
+	 - ahorro de energía, guardando las tramas a nodos que están hibernando 
+
+* Unidad mínima para construir WLANs multiceldas identificadas por un ESSID
+
+* Puede conectar con un  sistema de distribución (DS) troncal a través del AP mediante conexión alámbrica o inalámbricas (WDS)
+
+
+---
+#**IEEE 802.11 - ESS**
+
+* ESS (Extended Service Set): formado por uno o más BSSs interconectados por un [W]DS:
+
+	 - los nodos en un ESS se comunican entre sí aunque estén en distintas BSSs, incluso en movimiento
+
+	 - los APs actúan como puentes, **creando un mismo dominio de difusión a través del DS**
+
+* Presenta un conjunto de BSSs como único 
+
+	 - todos los BSSs deben tener el mismo SSID, que también identifica al ESS
+
+* Configuraciones avanzadas (usando VLAN):
+
+	 - *AP isolation* (aislante): impide que sus nodos asociados 'se vean' entre  sí
+
+	 - *AP virtuales*: creación de distintos BSS/ESS en un mismo dispositivo AP
+
+---
+#**Esquema de un [Punto de Acceso](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#puntos-de-acceso-ap-access-point)**
+
+ 
+![Esquema de un Punto de Acceso](06-2-25.jpg "Esquema de un Punto de Acceso") 
+ 
+
+---
+#**802.11 - Tabla de [Servicios](https://documentation.meraki.com/General_Administration/Tools_and_Troubleshooting/Analyzing_Wireless_Packet_Captures)**  
+
+|**Service**|**Provider**|**Used to support**|
+|---	|:---:	|:---:	|
+| **Association**| Distribution system| MSDU delivery|
+| **Authentication**| Station| LAN access and security|
+| **Deauthentication**| Station| LAN access and security|
+| **Dissassociation**| Distribution system| MSDU delivery|
+| **Distribution**| Distribution system| MSDU delivery|
+| **Integration**| Distribution system| MSDU delivery|
+| **MSDU delivery**| Station| MSDU delivery|
+| **Privacy**| Station| LAN access and security|
+| **Reassocation**| Distribution system| MSDU delivery|
+ 
+
+---
+#**Autenticación**
+
+* [Tras el escaneado pasivo o activo](https://web.archive.org/web/20210226172315/https://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/Borderless_Networks/Unified_Access/CMX/CMX_802Fund.html) (**probe request** con o sin SSID), un **nodo se asocia a un BSS** usando los parámetros compatibles anunciados por el AP en las tramas **beacon** (cada 10-100s) o **probe response**   
+
+* La **autenticación** se usa para establecer la identidad de la estación. Hay dos niveles: 
+
+	 - **802.11**: **obligatoria antes de la asociación**
+	 - [802.1X](https://en.wikipedia.org/wiki/IEEE_802.1X): robusta, opcional y **posterior a la asociación** 
+
+* **802.11** requiere que un nodo establezca su identidad antes de asociarse. 2 sistemas:
+
+	 - **abierto**: basta con enviar la MAC (¿es fiable el filtrado MAC?) 
+	 - **de clave compartida** (**WEP**): el AP desafía al nodo a que cifre un mensaje con la clave (no usar nunca!!!)
+
+* [802.11i](https://en.wikipedia.org/wiki/IEEE_802.11i-2004) recomienda el uso de **s. abierto + 802.1X**:  
+
+	 - ofrece autenticación de la capa de enlace y de usuario, no sólo de la estación
+	 - **WPA2** implementación de la industria (**WPA**, transición)
+ 
+
+---
+#**Privacidad**
+
+* La **privacidad** permite trasmitir los datos de forma confidencial mediante el uso de criptografía. 
+
+* En **802.11 abierto** o **de clave compartida** se puede recurrir a [WEP](http://es.wikipedia.org/wiki/Wired_Equivalent_Privacy) para cifrar los datos:
+
+	 - Wired Equivalent Privacy 
+	 - ¿Privacidad Equivalente a red Alámbrica? … mentira podría 
+
+* Se recomienda usar **802.11i**, que integra la autenticación 802.1X junto con la posibilidad de utilizar fuertes sistemas de cifrado y de integridad del mensaje
+
+* [Ver en el wikilibro](http://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#seguridad-y-fiabilidad)
+
+* [WPS](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#wps-wi-fi-protected-setup) (Wi-Fi Protected Setup)
+
+
+---
+#**Asociación**
+
+* Tras la autenticación, un nodo se asocia al AP para que el DS pueda registrar su ubicación 
+
+	- *sólo en modo infraestructura* y a un único AP
+	- el AP asigna un identificador (AID) a cada nodo, un nodo no asociado “no está en la red” 
+
+* Dos servicios relacionados con este requerimiento: 
+
+	- **Reasociación**, mueve una asociación a otro AP
+	- **Disociación**, por parte de la estación o el AP
+
+* Se produce en un intercambio de 3
+
+	- el nodo envía una **petición de asociación**; si no está autenticada, recibe una anulación de autenticación 
+	- el AP, tras procesarla (p.e., ¿suficiente memoria?), responde con 0 (éxito) y un **ID de asociación** o con !=0  
+	- el AP inicia el procesamiento de tramas para el nodo a través de DS, guardándolas cuando esté en modo de ahorro de energía  
+
+ 
+---
+#**Distribución e integración**    
+
+* Servicio de **distribución** 
+
+	 - usado por las estaciones para intercambiar tramas MAC cuando la trama debe atravesar un DS 
+
+	 - si las estaciones están en la misma BSS, el servicio de distribución atraviesa únicamente el AP de su BSS
+
+	 - en modo infraestructura los nodos no se envían tramas directamente, sino estas pasan siempre por el AP  
+
+* Servicio de **integración** 
+
+	 - habilita la transferencia de datos entre una estación 802.11 y otra LAN 802._ , formando una única red integrada 
+
+ 
+---
+#**IEEE 802.11 - CAPA M.A.C .**
+
+* La capa MAC cubre tres áreas funcionales: 
+
+	 - entregas fiables de datos en un enlace RF
+	 
+	 - acceso a una red de límites difusos (estaciones ocultas)
+	 
+	 - seguridad en un medio público y remoto
+
+* Proporciona tres tipos de servicios:
+
+	 - asíncrono o con contienda (distributed coordination function o **DCF**): redes ad hoc y en infraestructura
+
+	 - síncrono o sin contienda (point coordination function o **PCF**): sólo en redes en infraestructura
+
+	 - híbrido (**HCF**): ofrece [**QoS**](https://es.wikipedia.org/wiki/Calidad_de_servicio) ([**802.11e / WMM**](http://en.wikipedia.org/wiki/802.11e), de 2005)
+
+* Estos se pueden emplear simultáneamente, para ello se definen tres tiempos de espera: SIFS, PIFS (tras el cual se puede usar PCF) y DIFS (idem con DCF)
+
+* La ocupación del medio con detección física y virtual
+
+	 - NAV, un campo de las tramas con la cantidad de tiempo que se va a reservar el medio   
+
+---
+#**IEEE 802.11 MAC - Tiempos**
+
+ 
+![IEEE 802.11 MAC - Tiempos](06-2-32.jpg "IEEE 802.11 MAC - Tiempos") 
+ 
+
+---
+#**Valores de prioridad IFS**  
+
+* Se establecen distintas prioridades para distintos tipos de tráfico: primero, el de mayor prioridad.
+
+* [**SIFS**](http://en.wikipedia.org/wiki/SIFS) (*Short InterFrame Spacing*) 
+
+	 - tras este periodo pueden iniciarse las transmisiones de prioridad más alta como la tramas CTS, ACK, el segundo y siguientes fragmentos de una trama y la respuesta a una trama de sondeo en periodo sin contienda (PCF) 
+
+* [**PIFS**](http://en.wikipedia.org/wiki/PIFS) (Pcf IFS)
+
+	 - tras este periodo las estaciones pueden ocupar el medio con datos a transmitir **sin contienda**
+
+* [**DIFS**](http://en.wikipedia.org/wiki/DIFS) (Dcf IFS)
+
+	 - tras este periodo de tiempo las estaciones pueden contender por el acceso al medio
+
+	 - los nodos pueden tener un acceso inmediato al medio si este está libre durante un periodo de tiempo más largo que DIFS
+
+
+---
+#**MAC - Arquitectura**
+
+ 
+![MAC - Arquitectura](06-2-34.jpg "MAC - Arquitectura") 
+ 
+
+---
+#**DCF con [CSMA/CA](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema07/Teoria.html#csma-ca)**
+
+* Permite a varios nodos interactuar sin control central, solo escuchando la portadora física y virtual (NAV)
+
+* Si el medio está libre un tiempo > DIFS, transmite 
+
+* Si el medio está ocupado, espera a que esté libre un tiempo > DIFS y hace la demora exponencial: 
+	 - pone en marcha un temporizador de espera aleatorio dentro de un intervalo llamado ventana de contienda, que crece 2<sup>n</sup> cada vez que hay una colisión hasta un máximo (~ c. física)
+	 - si éste llega a cero y el medio no se ha ocupado, transmite
+	 - si se ocupa antes, espera otro DIFS conservando el mismo valor que tenía el temporizador cuando se ocupó
+	 - la ventana se reinicia cuando se transmite con éxito o se alcanza el máximo de reintentos 
+
+* El transmisor espera a recibir ACK, que el receptor envía en el siguiente periodo SIFS (intercambio atómico de tramas) 
+
+* Si no se confirma, se retransmite (hasta máx. de reintentos) 
+
+* Las tramas se pueden fragmentar cuando superan un cierto umbral
+
+ 
+---
+#**Estación oculta y expuesta**  
+
+ 
+![MAC - Arquitectura](06-2-36.jpg "MAC - Arquitectura") 
+ 
+
+---
+#**DCF con intercambio [RTS/CTS](http://media.pearsoncmg.com/aw/aw_kurose_network_2/applets/csma-ca/withouthidden.html)**
+
+* Para evitar el problema de la [estación oculta](http://media.pearsoncmg.com/aw/aw_kurose_network_2/applets/csma-ca/withhidden.html), garantizando la reserva del medio y una transmisión sin interrupciones 
+
+* [**Intercambio de 4 tramas**](http://en.wikipedia.org/wiki/File:Csma_ca.svg) para una mejor fiabilidad 
+	
+	 - la fuente envía una trama RTS (Request to Send) al destino con la duración de la transmisión (NAV)
+	 - el destino responde con CTS (Clear to Send) y su NAV
+	 - después de recibir CTS, la fuente envía los datos 
+	 - el destino responde con ACK (o [Block Ack](https://en.wikipedia.org/wiki/Block_acknowledgement))
+
+* **RTS** alerta a todas las estaciones al alcance de la fuente de que se inicia un intercambio
+
+* **CTS** alerta a todas las estaciones al alcance del destino 
+
+* **En los nodos** se puede establecer una longitud de trama a partir de la cual se usa RTS/CTS (RTS Threshold) si se detectan exceso de colisiones por estaciones ocultas
+
+	 - <u>no en el A.P.</u>, ya que para este no hay estaciones ocultas 
+
+
+---
+#**Intercambio - Esquema** 
+
+ 
+![Intercambio RTS/CTS - Esquema](06-2-38.jpg "Intercambio - Esquema") 
+ 
+
+---
+#**802.11 MAC - [Formato de trama](https://www.owisam.org/index.php/Protocolo_802.11)**
+
+ 
+![802.11 MAC - Formato de trama](06-2-39.jpg "802.11 MAC - Formato de trama") 
+ 
+
+---
+#**802.11 MAC - Trama (1)**
+
+* Existen tres clases distintas de tramas MAC: Datos, Control y Gestión. Tienen los siguientes campos:
+
+* **Control de trama** (2B), formado por 11 subcampos
+
+	* Versión de protocolo (2b)
+	* Tipo (2b): datos, control o gestión
+	* Subtipo (4b): Datos / RTS, CTS, ACK / Beacon ...
+	* ToDS (1b) y FromDS (1b): (=1 si datos y modo infraestr.)
+	* Más Fragmentos (1b)
+	* Reintento (1b)
+	* Gestión de energía (1b), tras terminar la operación
+	* Más datos (1b), guardados en el AP para el nodo
+	* Trama protegida (WEP) (1b), la trama cambia ligeramente
+	* En orden (1b)
+
+
+---
+#**802.11 MAC - Trama (2)**
+
+* **Duración/ID** (2B), depende de los bits 15/14 
+
+	 - si el bit 15 = 0, se usa para establecer el NAV (Network Allocator Vector) o nº de microsegundos que se espera que permanezca ocupado el medio para la transmisión en curso ==> escucha virtual de la portadora
+	 - si el bit 15 = 1/ bit 14 = 0, tramas CFP (sin contienda)
+	 - si el bit 15 = 1/bit 14 = 1, trama PS-Poll, sondeo de ahorro de energía al A.P. para asegurarse que no se pierde ninguna trama (se le añade el ID de asociación) * Dirección de 1 a 4 (x6B), normalmente 3 direcciones  
+	 - dirección de destino, origen, receptor, transmisor 
+
+* **Control de secuencia** (2B), no en las tramas de control 
+
+	 - nº fragmento (4b) y nº secuencia (12b)
+
+* **Datos** (0-2312B)
+
+* **FCS** (6B),  secuencia de comprobación de trama 
+
+* Máximo Total: 2346B
+
+ 
+---
+#**WPANs - IEEE 802.15**
+
+* Wireless Personal Area Network o Piconets adhoc
+
+	 - un dispositivo actúa como maestro y el resto de esclavos
+	 - distancias de unos 10m
+
+* adecuado para aplicaciones como conexiones esporádicas entre dispositivos móviles y de periféricos
+
+* se usa transmisiones de radio de corto alcance, como bluetooth  
+
+* se estandarizan en el [**IEEE 802.15**](https://es.wikipedia.org/wiki/IEEE_802.15):
+
+	 - 802.15.1: Bluetooth
+	 - 802.15.2: Coexistencia con WLANs
+	 - 802.15.3: Alta velocidad (11 a 55 Mbps)
+	 - 802.15.4: Baja velocidad, consumo y complejidad
+	 - 802.15.5: Interconexión en malla
+
+ 
+---
+#**IEEE 802.15.1 - Bluetooth (1)**
+
+* Bluetooth es un estándar abierto publicado por el B. Special Interest Group (Ericsson, IBM, Nokia, Intel, Toshiba...)
+
+* El comité 802.15 estandariza sólo las capas física y de enlace de datos, el resto queda fuera de su alcance
+
+
+---
+#**IEEE 802.15.1 - Bluetooth (2)**
+
+* La arquitectura está formada por una unidad básica llamada piconet formada por un maestro y hasta 7 esclavos activos
+
+	 - en una piconet puede haber hasta 255 nodos estacionados, estando los no activos en estado de bajo consumo hasta que el maestro lo vuelva a activar
+	 - las piconets se pueden conectar mediante un nodo puente, formando una scatternet
+
+* Es un sistema TDM controlado por el reloj del maestro, en el que no hay comunicación directa esclavo esclavo
+
+* Sobre las capas 802.15 se define los perfiles de aplicación: auriculares, acceso LAN, sync, fax, transferencia de archivos ...
+
+
+---
+#**WPANs - Diagrama**
+
+ 
+![WPANs - Diagrama](06-2-45.jpg "WPANs - Diagrama") 
+ 
+
+---
+#**IEEE 802.15.1 - CAPAS**
+
+* C. física: interfaz de radio en la banda ISM 2.4GHz  
+
+	 - Multiplexión:
+
+		* FHSS de 79 canales de 1MHz y 1600 saltos/segundo
+		* TDM: mitad para el maestro, mitad para el resto (TDD)
+
+	 - Modulación:
+
+		* FSK para 1Mbps
+
+	 - Hay tres tipos de transceptores de radio Bluetooth:
+
+		* Clase 1: P. max. de 100 mW y alcance de 100m
+		* Clase 2: P. max. de 2,5mW y alcance de 10m
+		* Clase 3: P. max. de 1mW y alcance de 1 o 2m 
+
+* C de banda base (MAC): maneja el envío de tramas
+
+* C L2CAP (LLC): divide paquetes de hasta 64KB en tramas, maneja la calidad de servicio 
+
+ 
+---
+#**Bluetooth - Pila de protocolos**
+
+ 
+![Bluetooth - Pila de protocolos](06-2-47.jpg "Bluetooth - Pila de protocolos") 
+ 
+
+  </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

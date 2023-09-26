@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ACCESO A INTERNET</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+
+#** PAR - Unidad 10 ** 
+
+#** ACCESO A INTERNET Y MONITORIZACIÓN **
+
+---
+#**[Network Address Translation](https://www.coursera.org/learn/computer-networking/lecture/UnKO5/basics-of-nat) ([NAT](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema11/Teoria.html#nat-network-address-translation)**)
+
+* Método que cambia las dir. IPs de los datagramas que pasan por un router para mapear un espacio de direcciones en otro 
+
+* Hay varios tipos de NAT ([rfc2663](http://tools.ietf.org/html/rfc2663)) (en [ES](https://www.rfc-es.org/rfc/rfc2663-es.txt)):  
+
+	- uno a uno (NAT básico) y uno a muchos (NAPT / PAT) 
+	- estático (uno a uno) y dinámico
+	- de origen ([S]NAT o Enmascaramiento) y de destino (DNAT) 
+
+* NAPT/PAT mantiene una tabla de conexiones establecidas:
+
+	- sustituye los campos de dirección origen o destino de la cabecera IP por la IP pública del router y los campos de puerto origen o destino de la cabecera TCP/UDP por un número que indica una entrada de la tabla de conexiones (max. 65535) donde se almacena las IPs y puertos junto a otra información 
+	- objeciones: anti-capa, anti-IP, sólo TCP/UDP, hay aplicaciones especiales (p.e.FTP, VoIP, P2P, ...), límite de conexiones
+	- NAT traversal: RSIP, UpnP/IGD, Bonjour/NAT-PMP, ... 
+	- [CG-NAT](https://es.wikipedia.org/wiki/Carrier_Grade_NAT): [Carrier Grade NAT](https://www.youtube.com/watch?v=Okol1psVOD8&list=PLSvxAUzJ-XSfY0KpwV8SHBlyLVcrZkENc&index=12) 
+
+* En Linux se configura con *[iptables](https://help.ubuntu.com/community/IptablesHowTo)* con *[-j DNAT/SNAT/MASQUERADE](https://wiki.archlinux.org/title/simple_stateful_firewall#Setting_up_a_NAT_gateway)* y *[conntrack](http://conntrack-tools.netfilter.org/manual.html)* para hacer seguimiento de las conexiones o con su sucesor *[nft](https://netfilter.org/projects/nftables/)*
+
+---
+#**Funcionamiento del NAT**
+
+ 
+![Funcionamiento del NAT](10-03.jpg "Funcionamiento del NAT")
+ 
+
+---
+#**[IP versión 6](https://www.coursera.org/learn/computer-networking/lecture/MOcQY/ipv6-addressing-and-subnetting)**
+
+* RFC 1752, 2460, 2373, ...
+
+* Razones para el cambio:
+
+	- agotamiento del espacio de direcciones de la versión 4 
+	- nuevos tipos de servicios y mejor integración con los antiguos
+
+* Mejoras:
+
+	- direcciones de 128 bits y más flexibles:
+
+		* 66,7 trillones (6,67x10<sup>19</sup>) direcciones/cm<sup>2</sup> de la Tierra
+
+	- mecanismo de opciones más eficaz
+	- los paquetes se pueden etiquetar para identificar un determinado flujo de datos y poder tratarlos de forma específica 
+
+* [Mecanismos de transición](https://en.wikipedia.org/wiki/IPv6_transition_mechanism):
+
+	- [Teredo (miredo)](https://en.wikipedia.org/wiki/Teredo_tunneling): para nodos que se conectan mediante NAT
+	- [6to4](https://en.wikipedia.org/wiki/6to4): para nodos con IP pública
+	- [IPv6 and IPv4 Harmony](https://www.coursera.org/learn/computer-networking/lecture/sleYt/ipv6-and-ipv4-harmony)
+
+---
+#**PDU IPv6**  
+
+ 
+![PDU IPv6](10-05.jpg "PDU IPv6")
+ 
+ 
+
+---
+#**[Cabecera IPv6](https://www.coursera.org/learn/computer-networking/lecture/lR0Wf/ipv6-headers)**
+
+ 
+![Cabecera IPv6](10-06.jpg "Cabecera IPv6")
+ 
+
+---
+#**Campos de la [cabecera IPv6](https://en.wikipedia.org/wiki/IPv6_packet#Fixed_header)**
+
+* **Versión** [4b]: 6
+
+* **Clase de tráfico (DS + ECN)** [8b]: 
+
+	- DS para distinguir distintas prioridades de tráfico
+	- ECN para control de congestión de red
+
+* **Etiqueta de flujo** [20b]:
+
+	- identifica datagramas como pertenencientes a un mismo flujo, puediendo ser tratados diferenciadamente
+
+* **Longitud de carga útil** [16b]: 
+
+	- tamaño de los datos en bytes, incluyendo extensiones de la cabecera
+
+* **Encabezado siguiente** [8b]:
+
+	- tipo de [extensión de la cabecera ipv6](https://en.wikipedia.org/wiki/IPv6_packet#Extension_headers) o tipo de la cabecera en la carga útil ([compartida con ipv4](https://es.wikipedia.org/wiki/Anexo:N%C3%BAmeros_de_protocolo_IP)) 
+
+* **Límite de saltos** [8b]: TTL
+
+* **Dirección de origen** [128b] y **de destino** [128b]
+
+* **[Extensiones de la cabecera](https://en.wikipedia.org/wiki/IPv6_packet#Extension_headers)**
+
+ 
+---
+#**[Direcciones IPv6](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IPv6)**
+* Cada interfaz puede tener direcciones en distintos ámbitos    
+* Se escriben como 8 grupos separados por ':' de 4 dígitos hexadecimales(/nº bits de máscara de red) [rfc2373-es](https://www.rfc-editor.org/rfc/rfc2373.txt):
+	- los ceros a la izquierda pueden omitirse
+	- 1 ó + grupos de 4 0s seguidos se sustituye por '::'  (una única vez)
+	- las direcciones IPv4 pueden mapearse como ::ffff:c000:0280 o ::ffff:192.0.2.128 
+* Tres tipos de direcciones, según el destino:
+	- ***[unicast](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IPv6#Formato_de_direcci.C3.B3n_Unicast_y_Anycast)***: una única dirección 
+	- ***anycast***: mejor nodo (más cercano) de un conjunto de direcciones 
+	- ***[multicast](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IPv6#Formato_de_direcci.C3.B3n_Multicast)***: un conjunto (8pref.+4flags+4scope + 112group) ff00::/8 
+* Tipos de direcciones, [según sean válidas en el ámbito](https://en.wikipedia.org/wiki/IPv6_address#IPv6_address_scopes):
+	- de ***host*** (~ *loopback*) ::1/128
+	- ***link-local*** (~ no enrutable;~ 169.254.0.0) [fe80::/10](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IPv6#Formato_de_direcci.C3.B3n_Unicast_y_Anycast)
+	- ***[unique-local address](https://en.wikipedia.org/wiki/Unique_local_address)*** (ant. site-local;  ~ privada) fc00::/7
+	- ***global*** (~ pública) [2000::/3](http://www.iana.org/assignments/ipv6-unicast-address-assignments/ipv6-unicast-address-assignments.xhtml) (el [ISP asigna una red de /48](https://getipv6.info/display/IPv6/IPv6+Addressing+Plans) a cada usuario y este la divide en subredes de /64: red de 48b + subred de 16b + host de 64b) 
+* Identificador de interfaz: [EUI-64 Modificado](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IPv6#EUI-64_Modificado) (derivado de la MAC), DHCPv6, aleatorio o manual
+---
+#**Cambios con respecto a IPv4**
+
+* Se eliminan los siguientes campos:
+
+	- IHL, porque la cabecera Ipv6 tiene longitud fija de 40B
+	- tipo de protocolo, porque va en el último campo de encabezado siguiente
+	- los relacionados con la fragmentación: se usa una extensión de cabecera y nunca se fragmenta en los routers   
+	- suma de verificación, porque se confía en la capa de enlace y de transporte y en la fiabilidad de la capa física 
+
+* Se establece el encabezado de extensión (opcional), organizado como una tupla: *tipo* [1B], *longitud* [1B], *valor*
+
+* Se fragmenta en el origen nunca en los enrutadores
+
+* [ICMPv6](https://es.wikipedia.org/wiki/ICMPv6) asume las funciones de ICMP, IGMP y ARP en IPv4
+	
+	- [Neighbor Discovery Protocol](https://es.wikipedia.org/wiki/Neighbor_Discovery) (equivalente a ARP, se basa en ICMPv6, ver [esta práctica de Netkit](http://servus.inf/%7Exab/par/netkit/netkit-lab_ipv6-nd.pdf))
+
+* En cada interfaz IPv6 se crea una dirección *link-local* usando [SLAAC (stateless address autoconfiguration)](https://es.wikipedia.org/wiki/Direcci%C3%B3n_IPv6#Configuraci.C3.B3n_autom.C3.A1tica_sin_estado) comprobando que no hay [direcciones duplicadas](https://theinternetprotocolblog.wordpress.com/2021/02/21/ipv6-duplicate-address-detection/) (en estado de intento: *tentative*)
+
+ 
+
+---
+#**Extensiones de la cabecera IPv6**
+
+ 
+![Extensiones de la cabecera IPv6](10-10.jpg "Extensiones de la cabecera IPv6")
+ 
+
+---
+#**Monitorización de redes: [SNMP](https://es.wikipedia.org/wiki/Protocolo_simple_de_administraci%C3%B3n_de_red)**
+
+* *Simple Network Management Protocol* es un protocolo de la capa de aplicación que facilita el intercambio de información entre dispositivos de red (RFC 1157,3410,...): SNMPv1/v2/v3
+
+* Los dispositivos que normalmente soportan SNMP incluyen routers, switches, servidores, pcs, impresoras, bastidores de módem y muchos más. 
+
+* Permite a los administradores supervisar el funcionamiento de la red, buscar y resolver sus problemas y planear su crecimiento
+
+* Distingue entre los **agentes** que residen en los **dispositivos administrados** y los **sistemas administradores** (NMS)
+
+* Y cuatro operaciones SNMP básicas: lectura, escritura, notificación (Trap) y transversal (InformRequest)
+
+* El agente SNMP recibe peticiones  UDP en el puerto 161 y el administrador recibe notificaciones en el puerto 162
+ 
+* SNMPv3 aporta seguridad criptográfica, + escalabilidad , ...
+
+---
+#**Bases de Información de Gestión (MIB)**
+
+* Los agentes SNMP exponen los datos de gestión en los sistemas administrados como variables, organizadas en jerarquías y se describen en MIB
+* El objeto administrado atInput se identifica por 1.3.6.1.4.1.9.3.3.1 o iso.identified-organization.dod.internet.private.enterprise.cisco.temporary.AppleTalk.atInput
+![Bases de Información de Gestión (MIB)](10-12.jpg "Bases de Información de Gestión (MIB)")
+
+---
+#**[Conectando con Internet](https://www.coursera.org/learn/computer-networking/lecture/CHM69/introduction-to-connecting-to-the-internet)**
+
+* [Dial-up, Modems & Point-to-Point Protocols](https://www.coursera.org/learn/computer-networking/lecture/ZlPw5/dial-up-modems-and-point-to-point-protocols)
+
+* [What is broadband?](https://www.coursera.org/learn/computer-networking/lecture/Aq8AR/what-is-broadband)
+
+* [Wide Area Network Technologies](https://www.coursera.org/learn/computer-networking/lecture/rVjn6/wide-area-network-technologies)
+
+---
+#**Epílogo: Google IT**
+
+* [What is The Cloud?](https://www.coursera.org/learn/computer-networking/lecture/TXgpc/what-is-the-cloud)
+
+* [Everything as a Service](https://www.coursera.org/learn/computer-networking/lecture/3j4pu/everything-as-a-service)
+
+* [Cloud Storage](https://www.coursera.org/learn/computer-networking/lecture/yupAJ/cloud-storage)
+
+* [Interview Role Play: Networking](https://www.coursera.org/learn/computer-networking/lecture/oxwYp/interview-role-play-networking)
+
+	</textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

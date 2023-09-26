@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PROTOCOLOS DE ENRUTAMIENTO</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+
+#**PAR - Unidad 9**
+
+#**CONFIGURACIÓN DE PROTOCOLOS DE ENRUTAMIENTO**
+ 
+---
+#**[Protocolos de Enrutamiento](https://www.coursera.org/learn/computer-networking/lecture/QvF9H/interior-gateway-protocols)**
+
+* El uso de enrutamiento estático está limitados a redes pequeñas y sujetas a pocos cambios
+
+* En el resto se usan algoritmos de enrutamiento dinámico
+
+* Permiten que los routers tomen decisiones basadas en el conocimiento de la topología y las condiciones del tráfico (retrasos)
+
+* Se distingue entre:
+
+	- información de enrutamiento: sobre topología y retrasos
+	- algoritmos de enrutamiento:  toman las decisiones de enrutamiento basadas en dicha información. 
+
+---
+
+#**[IRP](https://www.coursera.org/learn/computer-networking/lecture/QvF9H/interior-gateway-protocols) y [ERP](https://www.coursera.org/learn/computer-networking/lecture/6zn7s/exterior-gateway-protocols)**
+
+* **Enrutamiento interno (IRP o IGP)**
+
+	- permite intercambiar información entre los *routers* que forman parte de un mismo AS
+		- **RIP** (Routing Information Protocol): está basado en el vector de distancia, ya que calcula la métrica o ruta más corta posible hasta el destino a partir del número de "saltos" o equipos intermedios que los paquetes IP deben atravesar. 
+		- **OSPF** (Open Shortest Path First): tiene en cuenta diversos parámetros tales como el ancho de banda y la congestión de los enlaces. OSPF construye además una base de datos enlace-estado idéntica en todos los routers de la zona.   
+
+* **[Enrutamiento externo](http://servus.inf/~xab/par/netkit/netkit-bgp-introduction.pdf) (ERP)**
+
+	- permite intercambiar información sobre la accesibilidad a los distintos ASs
+		- **EGP** (Exterior Gateway Protocol): obsoleto
+		- [**BGP**](http://servus.inf/~xab/par/netkit/netkit-bgp-introduction.pdf#page=19) (Border Gateway Protocol): se basa en los caminos, las políticas de red y otras reglas establecidas
+
+---
+#**Ejemplo de IRP y ERP**
+
+ 
+![Ejemplo de IRP y ERP](09-05.jpg "Ejemplo de IRP y ERP")
+ 
+
+---
+#**Estrategias de enrutamiento**
+
+* **Vector de distancia: [RIP](https://en.wikipedia.org/wiki/Routing_Information_Protocol)** (v1, v2 y ng [para ipv6])
+
+	- cada *router* informa a sus vecinos de los cambios en la topología (tablas de enrutamiento) periódicamente 
+	- cada nodo mantiene un vector de distancia (saltos) para cada red directamente conectada y la distancia y los vectores de siguiente salto para cada destino
+	- requiere batante tiempo para propagarse
+	- RIPv2 *multidifunde* la tabla completa de enrutamiento a los routers adyacentes en la dirección 224.0.0.9
+
+* **Estado de enlace: [OSPF](https://es.wikipedia.org/wiki/Open_Shortest_Path_First)**
+
+	- segunda generación de algoritmos de enrutamiento 
+	- cada router calcula coste de enlace de cada interfaz
+	- anuncia costes al resto de routers de la topología
+	- si cambian los costes, se anuncian los nuevos valores
+	- calcula el camino más corto y tabla de enrutamiento
+
+---
+#**Sistemas Autónomos (AS)**
+
+* Colección de *routers* conectados bajo el control de uno o más operadores de red que presenta una política de enrutamiento común y claramente definida hacia Internet
+
+* Cada AS tiene un único número (ASN) asignado para uso en los protocolos de enrutamiento externo (ERP)
+
+	- los ASN son de 16/32 bits y son asignados por IANA
+	- se puede consultar a que AS pertenece una IP con *whois* (campo *origin*) 
+
+* Pueden agruparse en tres categorías, dependiendo de sus conexiones y modo de operación:
+	- *stub* AS: se conecta únicamente con un sistema autónomo
+	- *transit* AS: se conecta con varios sistemas autónomos permitiendo (y, por lo general, vendiendo) el tráfico entre ellos.
+	- *multihomed* AS: se conecta con varios sistemas autónomos para permanecer conectado a Internet incluso cuando se producen fallos en alguna(s) conexión(es), pero no permite el tráfico de tránsito entre dichos sistemas.
+---
+#**BGP**
+
+* Lecturas para el examen: 
+	- [**¿Qué es el BGP?**](https://www.cloudflare.com/es-es/learning/security/glossary/what-is-bgp/)
+	- [**Cómo Facebook se desconectó de Internet**](https://blog.cloudflare.com/es-es/october-2021-facebook-outage-es-es/)
+
+	</textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

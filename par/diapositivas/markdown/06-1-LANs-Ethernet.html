@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ethernet</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+#**PAR - Unidad 6**
+  
+#**Conexión de LANs: protocolos de la capa de enlace de datos**
+
+#** IEEE 802.3 - ETHERNET**
+
+---
+#**[Ethernet - IEEE 802.3](https://www.coursera.org/learn/computer-networking/lecture/z8FEX/ethernet-and-mac-addresses)**
+
+* El estándar LAN más ampliamente usado. 
+
+* **DIX Ethernet** por DEC, Intel y Xerox en 1978, en 1983 el IEEE 802.3. 
+
+* MAC: Acceso Múltiple con Detección de Portadora  y Detección de Colisiones (**CSMA/CD**):
+	- competencia por el acceso al medio de forma aleatoria y equitativa.
+
+* **Señalización Manchester** a 20 Mhz.
+
+* [_Media Independent Interface_](http://en.wikipedia.org/wiki/Media_Independent_Interface) (**MII**): permite conectar distintos tipos de medios físicos a la misma MAC (se empezó a usar con _fast ethernet_)
+
+* Herramientas: **_mii-tool_** (_view, manipulate media-independent interface status_), **_ethtool_** (_query or control network driver and hardware settings_)[[Cisco Troubleshooting](https://www.cisco.com/c/en/us/support/docs/lan-switching/ethernet/10561-3.html)]
+
+ 
+---
+#**CSMA/CD - Descripción**
+
+* CSMA: las estaciones escuchan el medio compartido antes de transmitir.
+
+* CD: las estaciones siguen escuchando mientras transmiten por si hay colisión. 
+
+* [Algoritmo CSMA/CD](http://en.wikipedia.org/wiki/Carrier_sense_multiple_access_with_collision_detection):
+
+	- si el medio está libre, transmite;
+	- si no, escucha hasta que lo esté y, entonces, transmite;
+	- si se detecta una colisión, detiene la transmisión de la trama y emite una secuencia no válida de 32-48 bits (jam signal) que corromperá la trama que puedan estar recibiendo el resto de estaciones (fuerza la colisión) y cesa la transmisión,
+	- entonces espera un tiempo dictado por el retroceso exponencial binario y retransmite.
+
+---
+#**CSMA/CD - Operación**
+
+ 
+![CSMA/CD - Operación](06-1-04.jpg "CSMA/CD - Operación")
+ 
+
+---
+#**Detección de Colisión**  
+
+* En la **topología física en bus**:
+
+	- la colisión produce una señal de mayor tensión,
+	- la colisión se detecta si la señal del cable es mayor que la señal de una única estación,
+	- la señal se atenúa con la distancia,
+	- se utiliza **cable coaxial** con límite de 500m (10Base5) o 200m (10Base2).
+
+* En la **topología física en estrella** (hub):
+
+	- si hay actividad en más de 1 puerto, colisión.
+	- se usa **cable UTP cat3** con límite  de 100m (10BaseT). 
+
+---
+#**Retroceso Exponencial Binario**    
+
+* Se emplea tanto en Ethernet como en IEEE 802.3. 
+
+* Se basa en el concepto de *ranura de tiempo* (***time slot***):
+	
+	- es el tiempo máximo que tarda un nodo en detectar una colisión [== doble del tiempo de propagación en la distancia máxima entre nodos (5*500m) =~ 50μs], 
+	- es 51.2μs (512b) para 10Mbps (y 5.12μs para 100Mbps). 
+
+* Una estación, cuando detecta una colisión, intenta retransmitir la trama siguiendo este método:  
+	- tras la 1ª colisión, se espera aleatoriamente 0 ó 1 ranura,
+	- tras i (<=10) colisiones, se espera entre 0 y 2<sup>i</sup>-1 ranuras,
+	- de la 11ª a la 16ª colisión, entre 0 y 2<sup>10</sup>-1 ranuras,
+	- después de 16 intentos sin éxito, se aborta la operación.
+
+* Método simple y eficiente para adaptarse a muy diferentes patrones de tráfico en este tipo de red.
+
+---
+#**[Tramas Ethernet y 802.3](https://www.coursera.org/learn/redes-informaticas/lecture/37kGv/diseccion-de-un-marco-ethernet)**
+
+![Tramas Ethernet y 802.3](06-1-07.jpg "Tramas Ethernet y 802.3") 
+
+---
+#**Trama IEEE 802.3 - Formato**  
+ 
+
+![Trama IEEE 802.3 - Formato](06-1-08.jpg "Trama IEEE 802.3 - Formato") 
+
+---
+#**Trama DIX/802.3 - Cabecera**    
+
+* **Preámbulo** (8 bytes)
+
+	- DIX: 8 x (10101010)
+	- 802.3: 7 x (10101010) + 1 x (10101011)
+
+* Dirección **MAC de destino** (6 bytes)
+
+* Dirección **MAC de origen** (6 bytes)
+
+* **Tipo** de protocolo (DIX) o **Longitud** de la carga (802.3) (2 bytes). Si el valor del campo es
+		
+	- **menor que *0x0600*** (1536 B) es la **longitud** (==> 802.3)
+		- y el **tipo** va en la cabecera LLC  
+		
+	- **mayor que *0x0800*** (protocolo IP) es el **tipo** (==> DIX)
+
+---
+#**Trama IEEE 802.3 - Carga**  
+
+* **cabecera LLC** (802.2), solo en el caso de las **tramas IEEE 802.3** 
+
+* **Datos** (0-1500 bytes) 
+
+	- [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) (*Maximum Transmission Unit*) de Ethernet == 1500
+
+* **Relleno** (0-46 bytes)
+
+	- se añade los bytes necesarios cuando la trama no alcanza la longitud mínima de 64 bytes (sin contar el preámbulo)
+	- este tamaño mínimo 512 bits es necesario para que funcione la detección de colisiones
+
+* **FCS** (*Frame Check Sequence*) (4 bytes)
+
+	- CRC de 32 bits calculado sobre todos los campos excepto el preámbulo (y el propio FCS) 
+	- normalmente eliminado por la tarjeta de red, al igual que el preámbulo ==> no se ve en los analizadores de red
+
+
+---
+#**[Versiones Ethernet - 802.3](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema06/Teoria.html#ethernet-ieee-802-3)**
+ 
+![Versiones Ethernet - 802.3](06-1-11.jpg "Versiones Ethernet - 802.3")
+
+---
+#**Ethernet 10Mbps - 802.3**
+
+|   	| 10BASE5| 10BASE2| 10BASE-T| 10BASE-FP|
+|---	|:---:	|:---:	|:---:	|:---:	|
+| **Transmission medium**| Coaxial cable (50 ohm)| Coaxial cable (50 ohm)| Unshielded twisted pair| 850-nm optical fiber pair|
+| **Signaling technique**| Baseband (Manchester)| Baseband (Manchester)| Baseband (Manchester)| Manchester/on-off|
+| **Topology**| Bus| Bus| Star| Star|
+| **Maximum segment length (m)**| 500| 185| 100| 500|
+| **Nodes per segment**| 100| 30| --| 33|
+| **Cable diameter (mm)**| 10| 5| 0.4 to 0.6| 62.5/125 µm|
+
+---
+#**Fast Ethernet - IEEE 802.3u**
+
+|   	| 100BASE-TX| 100BASE-FX| 100BASE-T4|
+|---	|:---:	|:---:	|:---:	|:---:	|
+| **Transmission medium**|  2 pair, STP/Cat5UTP| 2 optical fibers| 4 pair, Category 3, 4, or 5 UTP|
+| **Signaling technique**|  MLT-3| 4B5B, NRZI| 8B6T, NRZ|
+| **Data rate**| 100 Mbps| 100 Mbps | 100 Mbps|
+| **Maximum segment length (m)**| 100 m| 100 m| 100 m|
+| **Network span**| 200 m| 400 m| 200 m|
+
+---
+#**100BASE - T4**
+
+* 100 Mbps sobre UTP Cat 3 y 25 Mhz:
+
+	- ventaja por la gran cantidad ya instalado, 
+	- desventaja por velocidad máxima de 33,3Mbps/par.
+
+* Se utilizan los cuatro pares de cables trenzados y solo podrá ser *quasi-fullduplex*:
+
+	- dos pares se configuran para transmisión unidireccional y otros dos para bidireccional (negociables)
+	- el flujo de datos se divide para transmitir en uno de los sentidos entre tres pares, cada uno a 33,3 Mbps 
+	- el cuarto par se utiliza para transmitir en el otro sentido  
+
+* Usa un esquema de señalización ternario (8B6T)
+
+---
+#**100BASE - TX/FX**
+
+* Comunicación fullduple**X**.
+
+* Con tasa de datos unidireccional de 100 Mbps sobre un único par trenzado (**T**) o fibra óptica (**F**) 
+
+* 2 especificaciones: 
+
+	- **100BASE-TX** 
+
+		- usa dos pares trenzados para tx y otros dos para rx  => **full-duplex** (siempre que se use un ***switch***),
+		- cable STP y UTP Cat. 5, 
+		- y señalización 4B5B o MTL-3.
+
+	- **100BASE-FX**
+
+		- usa una fibra óptica para tx y otra para rx,
+		- y señalización 4B5B-NRZI.
+
+
+---
+#**100BASE - Opciones**
+
+
+![100BASE - Opciones](06-1-16.jpg "100BASE - Opciones") 
+
+---
+#**Operación Full - Duplex**  
+
+* Ethernet tradicional es *half-duplex*.
+
+* En modo *full-duplex*, la estación puede transmitir y recibir simultáneamente:
+	
+	- a 100 Mbps da una tasa de transferencia teórica de 200 Mbps.
+
+* Las estaciones deben tener tarjetas *full-duplex* y conectarse con un *switch*:
+
+	- cada estación constituye un dominio separado de colisión, 
+	- el algoritmo CSMA/CD deja de ser necesario, 
+	- se sigue usando el mismo formato de trama. 
+
+* Se admiten mezclas de 10 y 100 Mbps.
+
+---
+#**Gigabit Ethernet - 802.3z/ab**
+
+ 
+![Gigabit Ethernet - 802.3z/ab](06-1-18.jpg "Gigabit Ethernet - 802.3z/ab")
+ 
+
+---
+#**Gigabit Ethernet - Diferencias**
+
+* Mayor tamaño de la trama mínima para equipararla a la velocidad de transmisión:
+
+	- 4096 bits en vez de los 512 bits para 10/100Mbps.
+
+* Permite transmitir a un mismo nodo varias tramas consecutivas ([*jumbo frames*](https://www.youtube.com/watch?v=YUpsp7_kwD8)) sin necesidad de dejar el control del acceso al medio (CSMA/CD).
+
+* Estas mejoras no son necesarias si se usa un *switch*. 
+
+---
+#**Gigabit Ethernet - C. Física**
+
+ 
+![Gigabit Ethernet - C. Física](06-1-20.jpg "Gigabit Ethernet - C. Física")
+ 
+
+---
+#**10Gigabit Ethernet**
+
+* Creciente interés en Ethernet 10Gbps ([XGbE o 10GbE](https://en.wikipedia.org/wiki/10_Gigabit_Ethernet)): 
+
+	- para uso en troncales de alta velocidad,
+	- para conectar granjas de servidores, ... 
+
+* Alternativa a ATM y otras tecnologías WAN. 
+
+* Tecnología uniforme para LAN, MAN o WAN.
+
+* Ventajas de Ethernet 10Gbps:
+
+	- no es cara y evita el consumo de ancho de banda por la conversión entre tramas Ethernet y células  ATM,
+	- IP y Ethernet juntos ofrecen QoS y control de tráfico parecido a ATM,
+	- hay variedad de interfaces ópticos estándares.
+
+* Y como puente al Terabit Ethernet: [100GbE](https://en.wikipedia.org/wiki/100_Gigabit_Ethernet)  
+
+---
+#**10Gbps Ethernet - Esquema**    
+
+ 
+![10Gbps Ethernet - Esquema](06-1-22.jpg "10Gbps Ethernet - Esquema")
+ 
+
+---
+#**10Gbps Ethernet - Opciones**
+
+ 
+![CSMA/CD - Operación](06-1-23.jpg "CSMA/CD - Operación")
+ 
+
+---
+#**[PoE](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema06/Teoria.html#poe-power-over-ethernet) y [Normas de cableado](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema03/Teoria.html#conector-rj45)**
+
+* [***Power over Ethernet***](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema06/Teoria.html#poe-power-over-ethernet) (**PoE**, IEEE802.3af) permite suministrar alimentación eléctrica a un dispositivo con el mismo cable que se utiliza para la conexión de red
+
+* Es convencional [cablear las redes ethernet](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema06/Teoria.html#cableado-entre-dispositivos) (y muchos otros tipos) según el estándar TIA-568B:
+
+	- [TIA/EIA-568B](http://es.wikipedia.org/wiki/TIA-568B) comprende tres estándares que tratan el cableado comercial para productos y servicios de telecomunicaciones: ANSI/TIA/EIA-568-B.1-2001,- B.2-2001 y - B.3-2001
+	- sustituye al conjunto de estándares TIA/EIA-568-A que han quedado obsoletos.
+
+*  Se especifican desde el correcto tendido de cables en un edifico (sistema de cable estructurado) hasta [la asignación de los cables UTP a los conectores RJ45](http://es.wikipedia.org/wiki/TIA-568B#Las_terminaciones_T568A_y_T568B)
+ 
+ 
+  </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

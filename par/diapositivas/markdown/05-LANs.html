@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LANs</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+#**PAR - Unidad 5**
+
+#**Conexión de LANs: protocolos de la capa de enlace de datos** 
+
+#**IEEE 802. - INTRODUCCIÓN**
+
+ 
+---
+#**IEEE 802**
+
+* IEEE se suele pronunciar Iecubo: **802.**Nº[Letra(s)].
+
+* Familia de estándares para **PANs, LANs y MANs**, que tratan con la **capa física y de enlace de datos**.
+
+* Los estándares **802.1** tratan de cuestiones generales sobre arquitectura, interconexión, seguridad y gestión de redes LANs y MANs.
+
+* La mayoría definen estándares para distintas arquitecturas LANs y MANs específicas, p. ej.:
+	
+	- **802.3** (basado en Ethernet).
+	- **802.11** (WLAN) y **802.15** (Bluetooth y otros).
+
+* Los estándares 802 anteriores y muchos otros definen diferentes capas físicas y de acceso al medio, pero hacen uso de la misma capa de control de enlace lógico **802.2** (LLC).
+
+---
+#**IEEE 802 - Arquitectura**
+
+ 
+![IEEE 802 - Arquitectura](05-02.jpg "IEEE 802 - Arquitectura") 
+ 
+
+---
+#**IEEE 802 - Capas**     
+
+* **Física**
+
+	- codificación y señalización de los bits provenientes de la subcapa MAC.
+
+* **MAC** (Media Access Control)
+
+	- delimitación y reconocimiento de las tramas,
+	- direccionamiento de las estaciones de destino, 
+	- transporte de la información de direccionamiento de la estación de origen,
+	- transmisión transparente de los datos de los PDUs de la subcapa LLC (o equivalente en Ethernet),
+	- protección contra errores, mediante secuencias de comprobación de tramas,
+	- control de acceso al medio físico de transmisión.
+
+* **LLC** (Logical Link Control): un único estándar (802.2)
+
+	- 3 tipos de servicios: no fiable sin conexión (I), con conexión (II) y fiable sin conexión (III)
+
+---
+#**IEEE 802 - En contexto**
+
+ 
+![IEEE 802 - En contexto](05-05.jpg "IEEE 802 - En contexto")
+ 
+
+---
+#**IEEE 802 - Formato de trama**  
+
+![IEEE 802 - Formato de trama](05-06.jpg "Formato de trama")
+
+
+---
+#**IEEE 802 - Dirección MAC**
+
+* Tres formatos: MAC-48 (DIX)/ EUI-48 y EUI-64 (IEEE), escritos como pares de dígitos hex. separados por : ó -
+	
+	- ejemplo: primera línea de la salida del comando ifconfig 
+
+		- eth0  Link encap:Ethernet  direcciónHW 00:00:00:12:5f:68 
+
+* Una dirección MAC pueden ser de administración:
+	
+	- **universal** (b2=0): asignada de forma única por el fabricante [3 bytes - 2 bits (id. fabricante) + 3 bytes (puestos por el fabricante)].
+	- **local** (b2=1): asignada por el administrador de la red. 
+
+* Y pueden ser de difusión:
+	
+	- **unicast** (b1=0) o individual.
+	- **multicast** (b1=1) o de grupo.
+		- en el caso de **broadcast**:  ff:ff:ff:ff:ff:ff
+ 
+---
+#**IEEE 802 - [Formato direcciones MAC](https://www.coursera.org/learn/computer-networking/lecture/z8FEX/ethernet-and-mac-addresses)**
+
+
+![IEEE 802 - Formato direcciones MAC](05-08.jpg "IEEE 802 - Formato direcciones MAC")
+
+
+---
+#**Dominios de difusión y colisión**
+
+* El **dominio** de una red está formado por un conjunto de nodos interconectados entre los cuales circulan tramas.  
+
+* En las redes de áreas local se distinguen dos tipos de dominios:
+	
+	- **de colisión**, formado por el conjunto de nodos que, si envían una trama al mismo tiempo, colisionan (comparten el mismo medio físico o misma red a nivel de capa física - y de enlace -).
+
+* un hub conecta nodos al mismo dominio de colisión y difusión. 
+
+	- **de difusión**, formado por el conjunto de nodos al que alcanza una trama de difusión (mismo segemento de red a nivel de capa de enlace):
+
+		* un dominio de colisión también lo es de difusión
+		* y puede estar formado por varios dominios de colisión;
+		* un [switch](http://en.wikipedia.org/wiki/Ethernet_switch) o [bridge](http://en.wikipedia.org/wiki/Bridging_%28networking%29) separa dominios de colisión entre sus puertos y los conecta al mismo dominio de difusión.  
+
+
+---
+#**Conectando - C. Física**
+
+* [Dispositivos usados en las LANs](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema06/Teoria.html#dispositivos)
+
+* Mediante **repetidores** (topología física en bus) y **concentradores** o **hubs**.
+
+* El **hub** es el elemento central activo de la topología física en estrella :
+	
+	- topología física en estrella, lógica en bus.
+
+* El hub actúa como un repetidor, en la capa física:
+
+	- limitado a aprox. 100m, por las propiedades de UTP.
+	- lo transmitido por una estación llega a todas.
+
+* **Mismo dominio de colisión y de difusión**.
+
+---
+#**[Bus, hub y switch](https://www.coursera.org/learn/redes-informaticas/lecture/8rMWU/hubs-y-switches)**
+ 
+
+![Bus, hub y switch](05-11.jpg "Bus, hub y switch") 
+
+ 
+
+---
+#**Buses, hubs y bridges**
+
+* Características de **topología en bus**: 
+
+	- todas las estaciones comparten la capacidad total del bus (p.e. 10 Mbps).
+	- sólo una estación puede transmitir en cada momento.
+
+* El **hub** usa cableado en estrella para la conexión: 
+
+	- la transmisión de una estación recibida por un hub y retransmitida por todas las demás  líneas,
+	- sólo una estación puede transmitir a un tiempo,
+	- la capacidad total de la LAN es compartida por los nodos
+	- un nodo puede rastrear **todo el tráfico** generado por el resto de los nodos del dominio.
+
+* Se mejora el rendimiento con un **bridge/switch**: 
+
+	- conmuta múltiples tramas entre puertos por separado,
+	- multiplica la capacidad de LAN (por el número de nodos)
+	- un nodo puede rastrear **únicamente su propio tráfico** (o el de su puerto) **y el de difusión**. 
+
+---
+#**Conectando LANs - C. Enlace**  
+
+* Mediante **puentes** (**bridges**) y **conmutadores** (**switches**): IEEE 802 considera que son iguales. 
+
+* Crean un **único domino de difusión** sobre **dos o más dominios de colisión** distintos.
+
+* Conecta LANs con distintas subcapas MAC como si fueran similares:
+
+	- comparten un misma subcapa LLC,   
+	- mapean entre diferentes formatos MAC. 
+
+* Razones para su uso en vez de la conexión en la capa de red (nivel 3):
+
+	- flexibilidad,
+	- seguridad y fiabilidad,
+	- rendimiento y prestaciones,
+	- mantenimiento.
+
+---
+#**IEEE 802.1D - bridges/switches**   
+
+* **802.1D** es el estándar para **puentes de red** en la subcapa MAC de la IEEE incluyendo bridging, spanning tree, interconexión con 802.11 entre otros. 
+
+* Dispositivo de interconexión de nodos que opera en la subcapa MAC. 
+
+* Conecta dos (o más) segmentos de red (es decir, dos o más dominio de colisión) de igual o distinto tipo como una sola red (mismo dominio de difusión). 
+
+* Mantiene automáticamente una tabla con las direcciones MAC detectadas en cada segmento al que está conectado. Cuando detecta que un nodo de un de segmento está intentando transmitir datos a un nodo de otro, el bridge envía la trama hacia ese otro segmento.
+
+* Su ancho de banda interno ([switch fabric](https://etherealmind.com/what-is-the-definition-of-switch-fabric/) [capacity](https://networkengineering.stackexchange.com/questions/26710/switch-fabric-capacity-vs-forwarding-rate)) limita el máximo de "conversaciones" simultáneas 
+ 
+---
+#[**Bridge - Funcionamiento**](https://www.youtube.com/watch?v=M-7HhMS6Hz0&list=PLSvxAUzJ-XSfY0KpwV8SHBlyLVcrZkENc&index=15)
+
+ 
+![Bridge - Funcionamiento](05-15.jpg "Bridge - Funcionamiento")
+ 
+
+---
+#**Conexión de dos LANs**
+
+ 
+![Conexión de dos LANs](05-16.jpg "Conexión de dos LANs")
+ 
+
+---
+#**Rutas alternativas**
+
+ 
+![Rutas alternativas](05-17.jpg "Rutas alternativas")
+ 
+
+---
+#[**Rutas dinámicas**](https://youtu.be/w_CArT71qHc?list=PLSvxAUzJ-XSfY0KpwV8SHBlyLVcrZkENc)
+
+* El bridge elabora una tabla de caminos y actualiza dinámicamente la tabla de direcciones MAC en respuesta a los cambios que se puedan ir produciendo en la topología de la red.
+
+* Consta de 3 mecanismos:
+
+	- retransmisión de tramas, 
+	- aprendizaje de direcciones, 
+	- resolución de bucles (spanning tree protocol).
+
+
+---
+#**Reenvío de trama**  
+
+* Los puentes mantienen una tabla de reenvíos para cada puerto del puente
+	
+	- con las direcciones MAC de la estaciones conectadas en el mismo segmento de red. 
+
+* Cuando llega una trama a un puerto X:
+
+	- busca en la tabla la dirección MAC de destino, 
+	- si está asociada al mismo puerto X, la trama se descarta,
+	- si lo está al puerto Y, se pone en cola para su reenvío por Y,
+	- si no se encuentra en la tabla, se reenvía por todos los puertos excepto por X.
+
+ 
+---
+#**Aprendizaje de direcciones**
+
+* Cuando una trama llega al puerto X, es evidente que ha llegado del segmento de red conectado al puerto X,
+	
+	- usa la MAC de origen para actualizar la tabla de X. 
+
+* Hay un temporizador asociado a cada entrada de cada tabla de direcciones MAC:
+	
+	- si el temporizador expira, la entrada se elimina.
+
+* Cada vez que llega una trama:
+
+	- si su MAC de origen ya está en la tabla, el temporizador se reinicia
+	- si no lo está, se crea una nueva entrada y se le asocia un temporizador.
+
+ 
+---
+#**Bridge/Switch - Tipos**    
+
+* **Almacenamiento-y-reenvío** (*store-and-forward*): 
+
+	- acepta tramas de entrada, los almacena, valida y encamina a su puerto de destino, 
+	- hay un retraso entre emisor y receptor,
+	- mayor integridad en la red. 
+
+* **Rápido** o de atajo (*cut-through*):
+
+	- según entra la trama, su dirección MAC de destino le sirve para ir encaminándola,	
+	- posible rendimiento más alto, 
+	- riesgo de propagar tramas defectuosas. 
+
+---
+#**Bridge/Switch - Problemas**
+
+* **Sobrecarga por difusión**: 
+
+	- los usuarios comparten una dirección MAC de difusión común, 
+	- las tramas de difusión se entregan a todos los dispositivos conectados a los switches y/o bridges,
+	- las tramas de difusión  pueden crear una gran sobrecarga,
+	- las tormentas de difusión de dispositivos 'averiados'.
+
+* **Alternativa**: 
+
+	- actuar en la capa 3, dividiendo la red en subredes mediante un [router](https://www.coursera.org/learn/computer-networking/lecture/7XYnZ/routers)
+	- actuar en la capa 2, creando **vlans** mediante switches especiales.
+
+---
+#**IEEE 802.1AX ([Link aggregation](https://en.wikipedia.org/wiki/Link_aggregation))**
+
+* Combinación de múltiples conexiones de red en paralelo por redundancia y aumento de capacidad
+
+	- se crean **LAG**s (*Link Aggregation Group*)
+	- también: port trunking, link bundling, NIC bonding
+	- pero se puede hacer en otras capas distinta de la 2
+
+* Link Aggregation Control Protocol (**LACP**, 802.1AX) permite que un dispositivo negocie automáticamente la agreación de enlaces enviando paquetes LACP al otro extremo (antiguo 802.3ad)
+
+* El driver bonding de linux permite agregar múltiples NICs en una única interfaz lógica ligada a partir de dos o más NICs esclavas en varios modos:
+
+	- LACP, round-robin, active-backup, xor, broadcast, ….
+
+* Ver:
+
+	- [Multiplica la velocidad de tu red Gigabit](https://www.youtube.com/watch?v=v7VjdEhpHIs)
+	- [Switch para Link Aggregation](https://www.youtube.com/watch?v=aWeawTVS2FY)
+
+ 
+---
+#**Bucle de Bridges**
+
+ 
+![Bucle de Bridges](05-24.jpg "Bucle de Bridges")
+ 
+
+---
+#**IEEE 802.1D (STP)**    
+
+* El aprendizaje de direcciones funciona para topologías sin bucles. Rutas alternativas implican la aparición de bucles,
+
+	- cualquier grafo con bucles tiene un árbol de expansión, que mantiene la misma conectividad pero sin bucles.
+
+* STP cambia una red física en malla (con bucles) por una red lógica en árbol (sin bucles). Los puentes se comunican entre sí mediante mensajes de configuración llamados Bridge Protocol Data Units (B.P.D.U):  
+
+	- cada bridge tiene un único identificador, siendo uno el raíz, y determinados costes asociados a cada uno de sus puertos.
+	- el puente raíz establecerá el camino de menor coste a todos los demás, intercambiando BPDUs con ellos.
+	- inventado por [Radia Perlman](http://www.siliconvalleywatcher.com/mt/archives/2011/04/profile_of_radi.php) 
+	- [vídeo tutorial sobre STP](http://www.youtube.com/watch?v=eqfuGH7-WhA) (para examen CCNA)
+	- [Spanning Tree Protocol (Problems)](http://www.cisco.com/en/US/tech/tk389/tk621/technologies_tech_note09186a00800951ac.shtml)
+
+* STP se sustituyó por Rapid STP (**RSTP**) en 802.1D-2004 para acelerar la convergencia tras un cambio de topología.
+
+
+---
+#**Árbol de expansión - diagrama**
+
+ 
+![IEEE 802 - Arquitectura](05-26.jpg "IEEE 802 - Arquitectura")
+ 
+
+---
+#**IEEE 802.1Q ([VLAN](https://es.wikipedia.org/wiki/VLAN))**
+
+* Puede ser conveniente separar un único dominio de difusión en varios para reflejar una estructura organizativa u otros motivos:
+
+	- pero cambiar el cableado físico suele ser difícil, 
+	- mejor es pensar en términos de “cableado lógico”.
+
+*  Así surgieron las LANs Virtuales:
+
+	- se necesita un switch que implemente el protocolo 802.1Q (VLAN-aware) para que el administrador puede crear distintas VLANs (dominios de difusión),
+	- asignando a cada VLAN un identificador y asociando a cada puerto del switch una (o más) VLAN,
+	- los switches almacenan qué VLANs se pueden acceder a través de qué puertos,
+	- sólo los switches usan los campos VLANs. 
+
+* **802.1Q** incluye el Multiple Spanning Tree Protocol (**MSTP**)  
+
+---
+#**Diagrama VLAN**
+
+ 
+![Diagrama VLAN](05-28.jpg "Diagrama VLAN")
+ 
+
+---
+#**[IEEE 802.1aq (SPB)](https://es.wikipedia.org/wiki/IEEE_802.1aq)**
+
+* **Shortest Path Bridging** permite la creación y configuración de redes con multicaminos (bucles)
+
+	- mejora (R)STP y MSTP: no bloquea los puertos redundantes y permite aprovechar todo el ancho de banda de la red. 
+	- proporciona topologías de capa 2 mucho mayores con tiempos de convergencia más rápidos
+	- mejora la eficiencia permitiendo repartir el tráfico entre todos los caminos de una red en malla
+	- diseñado par eliminar errores humanos en la configuración
+
+* Crea redes ethernet lógicas sobre las redes físicas usando un protocolo de estado de enlace para anunciar la topología y la pertenencia a una red lógica.
+
+* El plano de control se basa en Intermediate System to Intermediate System ([IS-IS](https://es.wikipedia.org/wiki/IS-IS)) de la capa de red
+
+* Virtualiza redes separando y abstrayendo el control y el flujo de datos ([Software Defined Network](https://es.wikipedia.org/wiki/Redes_definidas_por_software) o SDN) 
+
+ 
+
+---
+#**[IEEE 802.2](http://es.wikipedia.org/wiki/IEEE_802.2)**
+
+* Pensado para sistemas en los que se desea un protocolo de enlace de datos con control de errores y control de flujo.
+
+* Esconde las diferencias entre los distintos tipos de redes 802, proporcionando un formato y una interfaz con la capa de red únicos (basado en HDLC). 
+
+* Ofrece 3 tipos de servicios orientados a la conexión, confiable y no confiable.
+
+* Añade su propia cabecera ([LLC](https://en.wikipedia.org/wiki/IEEE_802.2#LLC_header)):
+
+	- [ver diapositiva 6: Formato de trama IEEE 802](05-LANs.html#6) 
+	 
+* Para encapsular datagramas IP en tramas Ethernet/802.3 no se suele usar (sí para encapsular appletalk, netbios, ipx, ...). 
+
+
+
+   </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

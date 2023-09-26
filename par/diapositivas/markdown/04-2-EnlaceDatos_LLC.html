@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LA CAPA DE ENLACE DE DATOS: SUBCAPA LLC</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# **PAR - Unidad 4**
+
+# **LA CAPA DE ENLACE DE DATOS: SUBCAPA LLC**
+
+---
+# **LLC - Control de flujo**
+
+* Necesario únicamente si se pretende que la capa de enlace ofrezca servicios fiables a la capa de red (ya sean orientados o no a la conexión).
+
+* El control de flujo puede ofrecerse también en alguna de las capas superiores.
+
+* **Objetivos**:
+
+	 - asegurar que la entidad emisora no satura a la receptora, [previniendo la pérdida de tramas](http://media.pearsoncmg.com/aw/aw_kurose_network_2/applets/queuing/queuing.html).
+	 - aprovechar al máximo la capacidad del canal.
+
+* **Mecanismos**:
+
+	 - parada y espera: 
+		- una trama por turno.
+
+	 - ventana deslizante:  
+		- varias tramas por turno.
+
+---
+# **Modelo de transmisión de trama**
+
+ 
+![Modelo de transmisión de trama](04-2-03.jpg "Modelo de transmisión de trama") 
+ 
+
+---
+# **Parada y espera (sin errores)**
+
+* La fuente transmite una trama.
+
+* El destino recibe la trama y responde con una confirmación (ACK) para indicar que está dispuesto a recibir una nueva trama.
+
+* La fuente espera una ACK antes de enviar la  siguiente trama.
+
+* El destino puede detener el flujo no enviando una ACK.
+
+* Funciona bien para unas pocas tramas de gran tamaño.
+
+
+---
+# **Ventana deslizante (sin errores)**
+
+* Permite que haya múltiples tramas en tránsito.
+
+* El receptor tiene un búfer para almacenar W tramas.
+
+* El transmisor puede enviar hasta W tramas sin recibir una ACK o RR (Recieve Ready).
+
+* Cada trama tiene un número de secuencia.
+
+* La ACK incluye el nº de secuencia de la siguiente trama esperada.
+
+* W está limitado por el tamaño del campo de nº de secuencia: si k bits => W=2<sup>k</sup> - 1
+
+
+---
+# **Ventana deslizante - Ejemplo** 
+
+![Ventana deslizante - Ejemplo](04-2-06.jpg "Ventana deslizante - Ejemplo") 
+
+ 
+
+---
+# **Ventana deslizante - Mejoras**
+
+* El receptor puede confirmar las tramas recibidas, pero sin permitir más transmisiones: RNR (Receive Not Ready)
+
+	 - y enviar una confirmación normal para retomar la transmisión.
+
+* Si la comunicación es duplex, se puede enviar la ACK piggy-backed (“a cabrito”) de los datos:
+
+	 - si hay datos que enviar, se envía la ACK junto con ellos.
+	 - si no hay datos para enviar, se envía una trama de ACK.
+
+
+---
+# **LLC - Control de errores**
+
+* Dos tipos de problemas: pérdidas y daños de tramas.
+
+* La **detección de tramas dañadas** (con errores) suele hacerse ya sea el servicio fiable o no:
+
+	 - si se trata de un protocolo no fiable, simplemente se descarta la trama.
+
+* La **corrección de errores**, se hace sólo si se trata de un protocolo fiable. 
+
+* Para la recuperación de tramas dañadas, tenemos:
+
+	 - códigos de corrección hacia delante (FEC, en la subcapa MAC). 
+	 - solicitud de repetición automática  (ARQ, en la subcapa LLC).
+
+* Para las tramas perdidas sólo disponemos de ARQ
+
+ 
+---
+# **ARQ - Parada y espera**
+
+* El transmisor envía una trama, pone en marcha un **temporizador** y espera la ACK.
+
+* Si al receptor no le llega (el temporizador llega a cero) o le llega una trama dañada y, por tanto, la descarta, 
+
+	 - el transmisor no recibe la ACK antes de que expire el temporizador y retransmite la trama.
+
+* Si se pierde o daña la ACK enviada por el receptor, el transmisor no la recibe o no la valida:
+
+	 - el transmisor retransmite la trama (cumplido el tiempo).
+	 - el receptor tiene dos copias de la trama.
+	 - se usa un número de secuencia de 1 bit (ACK0 y ACK1) para distinguirlas y descartar una de ellas.
+
+* Protocolo simple, pero ineficiente.
+
+
+---
+# **Parada y espera - Diagrama**
+
+ 
+![Parada y espera - Diagrama](04-2-10.jpg "Parada y espera - Diagrama") 
+ 
+ 
+---
+# **ARQ - Retroceso N** 
+
+* Basado en la ventana deslizante:
+
+	 - usa una ventana para el control del número de tramas pendientes.
+	 - usa número de secuencia para identificar las tramas.
+	 - usa la ACK i+1 para confirmar todas las anteriores pendientes de confirmación y para solicitar la trama i+1.
+
+* Si no hay error, se envía la ACK como es usual con el número de la siguiente trama esperada.
+
+* Si hay error (pérdida o daño), no se confirma:
+
+	 - se descarta la trama dañada y las siguientes y se espera a recibir la trama correcta.
+	 - el transmisor debe volver a retransmitir dicha trama, así como las siguientes (todas las tramas no confirmadas).
+---
+
+![ARQ - Retroceso N](04-2-12.jpg "ARQ - Retroceso N") 
+
+---
+# **Retroceso N - Problema con trama**
+
+* Si recibe la trama i dañada o no la recibe, pero sí recibe la trama i+1, es decir, fuera de secuencia,
+
+	 - no envía ACK-i (o envía REJ-i, rechazo i).
+
+* Si el transmisor agota el tiempo de espera (o recibe REJ-i),
+ 
+	 - vuelve a enviar la trama i y las siguientes. 
+
+---
+# **Retroceso N - Problema con ACK**    
+
+* El receptor recibe una trama i y envía una ACK (i+1) que se pierde: 
+
+	 - como las ACKs son acumulativas, puede llegar otra ACK (i+n)  antes de de que expire el tiempo de espera de la ACK de la trama i, que resolvería la pérdida. 
+
+* Si el transmisor agota la espera, vuelve a enviar todas las tramas a partir de la i.
+
+ 
+---
+# **ARQ - Rechazo Selectivo**
+
+* También llamada retransmisión selectiva. 
+
+* Las únicas tramas que se retransmiten son las que se confirman negativamente o las que agotan el tiempo de espera de confirmación.
+
+* Las tramas siguientes son aceptadas por el receptor y almacenadas. 
+
+* Minimiza las retransmisiones.
+
+* El receptor debe mantener un búfer suficientemente grande.
+
+* Lógica más compleja en el transmisor.
+
+ 
+---
+# **High Level Data Link Control**
+
+* HDLC: ISO 33009, ISO 4335.
+
+* Origen en SDLC de IBM usado en los primeros mainframes.
+
+* Protocolo orientado a bit con multitud de variantes:
+
+	 - LAP de X.25, LAPB de Framerelay y LAPD de RDSI.
+	 - LLC de IEEE 802.2.
+	 - LAPM de v.42 (modems).
+	 - LAPX del teletexto.
+	 - PPP.
+
+
+---
+# **Protocolo Punto a Punto (PPP)**
+
+* El protocolo PPP permite establecer una comunicación a nivel de enlace entre dos computadoras.
+
+* Se suele usar, p. ej., para conectar un usuario doméstico a un ISP mediante módem RTB:
+
+	 - realiza el entramado y la detección de errores, 
+	 - da soporte a múltiples protocolos de red,
+	 - permite la negociación de direcciones de red,
+	 - gestiona la **autenticación** en el momento de la conexión,
+	 - ofrece servicios orientados a la conexión.
+
+* Engloba dos protocolos:
+
+	 - protocolo de control de enlace (LCP).
+	 - protocolo de control de red (NCP).
+
+ 
+---
+# **PPP - Diagrama (1)**
+
+ 
+![PPP - Diagrama (1)](04-2-18.jpg "PPP - Diagrama (1)") 
+ 
+
+---
+# **PPP	 - Diagrama (2)**
+
+ 
+![PPP - Diagrama (2)](04-2-19.jpg "PPP - Diagrama (2)") 
+ 
+
+---
+# **PPP encapsulado**
+
+* **PPPoE** (PPP over Ethernet)
+
+	 - encapsula tramas PPP dentro de tramas Ethernet.
+	 - reúne los beneficios de los dos protocolos:
+		- medio compartido y rapidez de Ethernet.
+		- servicios orientados a la conexión y seguridad.
+			- los usuarios pueden establecer una conexión punto a punto con el ISP sobre una red Ethernet, pudiendo además autentificarse.
+
+* **PPPoA** (PPP over ATM)
+
+	 - encapsula tramas PPP dentro de tramas ATM.
+		- Si tienes conexión a Internet con ADSL, ¿cuál de estos protocolos utiliza tu ISP?
+
+
+
+   </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
