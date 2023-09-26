@@ -1,0 +1,33 @@
+*****************
+feb 18 21:42 wiki-joaquinlude-LinkLayer
+https://en.wikipedia.org/wiki/Link_layer
+
+*****************
+feb 18 21:44 wiki-israelsibr-CDN
+https://en.wikipedia.org/wiki/Content_delivery_network
+
+*****************
+feb 18 21:52 wiki-antoniomule-802.19
+https://en.wikipedia.org/wiki/IEEE_802.19
+
+*****************
+feb 18 21:53 wiki-diegogoel-bss
+no tiene articulo
+
+*****************
+feb 20 16:13 wiki-franciscobesa
+Media-Independent interface
+https://en.wikipedia.org/wiki/Media-independent_interface
+
+*****************
+feb 20 16:24 wiki-cristiangalo.txt
+https://es.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+*****************
+feb 20 17:36 wiki-cristiangalov2.txt
+https://es.wikipedia.org/wiki/Banda_ISM
+
+*****************
+feb 20 17:43 wiki-rubencosa
+https://en.wikipedia.org/wiki/IEEE_802.11e-2005
+

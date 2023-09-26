@@ -1,0 +1,25 @@
+*****************
+abr 28 17:39 wiki-joserisa
+Mi propuesta es ampliar la información que hay en la wikipedia española sobre TCP.
+TCP inglés: https://en.wikipedia.org/wiki/Transmission_Control_Protocol
+TCP español: https://es.wikipedia.org/wiki/Protocolo_de_control_de_transmisi%C3%B3n
+
+*****************
+abr 28 17:41 wiki-pedropegu
+Ampliación de VLANS 
+https://es.wikipedia.org/wiki/VLAN
+
+*****************
+abr 28 17:45 wiki-fernandogugo.txt
+Ampliacion de NAT en la wikipedia espanola
+
+NAT wiki-esp:https://es.wikipedia.org/wiki/Traducci%C3%B3n_de_direcciones_de_red
+
+*****************
+abr 28 17:56 wiki-joserogu
+https://es.wikipedia.org/wiki/Border_Gateway_Protocol
+
+Usuario: JosemaRodGuez
+
+BGP - Border Gateway Protocol
+

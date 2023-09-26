@@ -1,0 +1,85 @@
+*****************
+nov 10 17:30 wiki-franciscobesa
+antenas MIMO https://en.wikipedia.org/wiki/MIMO
+
+*****************
+nov 10 17:32 wiki-alejandrobrca
+https://es.wikipedia.org/wiki/Modo_de_transferencia_as%C3%ADncrona
+Ampliacion articulo Modo de transferencia asincrono
+
+*****************
+nov 10 17:35 wiki-rafaelmoro
+Atenuación
+
+*****************
+nov 10 17:39 wiki-evaristorive
+Residential gateway https://en.wikipedia.org/wiki/Residential_gateway
+Pasarela residencial https://es.wikipedia.org/wiki/Pasarela_residencial
+
+*****************
+nov 10 17:39 wiki-diegohiro
+Escape de caracteres---> https://en.wikipedia.org/wiki/Escape_character
+
+*****************
+nov 10 17:39 wiki-joaquinlude
+https://es.wikipedia.org/wiki/Radiaci%C3%B3n_infrarroja
+
+*****************
+nov 10 17:43 wiki-cristiangalnares
+https://en.wikipedia.org/wiki/Packet_switching
+https://es.wikipedia.org/wiki/Conmutaci%C3%B3n_de_paquetes
+
+*****************
+nov 10 17:51 wiki-alvarojior
+Consistent Overhead Byte Stuffing
+
+
+https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing
+
+
+
+Error Detection and Correction
+
+
+https://en.wikipedia.org/wiki/Data_link_layer#Error_detection_and_correction
+
+
+
+wiki-alvarojior
+
+*****************
+nov 10 17:52 wiki-diegohiro-2
+Guia de onda---> Amplitude shift keying
+
+*****************
+nov 10 17:56 wiki-miguelolma
+https://en.wikipedia.org/wiki/Advanced_Data_Communication_Control_Procedures
+
+*****************
+nov 10 18:03 wiki-juancisa
+Ampliar Stream quality
+https://es.wikipedia.org/wiki/Televisi%C3%B3n_por_internet
+
+*****************
+nov 13 20:21 wiki-evaristorivev2
+Forma de onda
+https://es.wikipedia.org/w/index.php?title=Forma_de_onda&action=edit&redlink=1
+
+*****************
+nov 13 20:55 wiki-evaristorive_v3
+Interferencia entre símbolos
+https://es.wikipedia.org/wiki/Interferencia_entre_s%C3%ADmbolos
+
+*****************
+nov 13 21:20 wiki-juancisa-2
+Ampliación de Red inalámbrica mallada
+https://en.wikipedia.org/wiki/Wireless_mesh_network
+
+*****************
+
+*****************
+
+*****************
+nov 24 16:13 wiki-diegohiro-3
+Traducir al Español:  https://en.wikipedia.org/wiki/Delta_modulation
+

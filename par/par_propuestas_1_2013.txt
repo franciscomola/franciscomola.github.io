@@ -1,0 +1,125 @@
+*****************
+nov 25 20:34 wiki-juanpeca-1.txt
+Modelo OSI.
+
+Seguridad por niveles: Nivel de red.
+
+*****************
+nov 25 20:36 wiki-noeliacg-1
+Seguridad de las capas del modelo OSI- Capa 2: Nivel de enlace
+
+*****************
+nov 25 20:37 wiki-juanespr-1.txt
+Codificación diferencial
+
+*****************
+nov 25 20:37 wiki-mariagupa
+Capas del modelo TCP/IP - MªPaz Guerrero Parrado
+
+*****************
+nov 25 20:40 wiki-carlosjp
+RAS - Remote Access Server - Servidor de acceso remoto
+
+*****************
+nov 25 20:40 wiki-juanmm
+Servidor de telefonía
+
+*****************
+
+*****************
+nov 25 20:43 wiki-mariarobe-2.txt
+﻿Red de Área Amplia Wan
+
+*****************
+nov 25 20:43 wiki-mariarobe-1.txt
+﻿Red de Área Local Lan
+
+*****************
+nov 25 20:43 wiki-mariopaal-1.txt
+Antena isotrópica
+
+*****************
+nov 25 20:44 wiki-maurofq
+Multilayer switch
+
+*****************
+nov 25 20:44 wiki-joseed-1.txt
+Potencia de señal
+
+*****************
+nov 25 20:45 wiki-mariacg.txt
+﻿Señalización.
+
+*****************
+nov 25 20:49 wiki-franciscopaac-
+Capacidad - Fibra óptica
+
+*****************
+nov 25 20:51 wiki-ignaciogl
+Seguridad de la capa 4 del modelo OSI - Nivel de transporte
+
+*****************
+nov 25 20:51 wiki-salvadormope-1
+MODELO OSI:
+
+SEGURIDAD POR NIVELES: NIVEL APLICACION.
+
+*****************
+nov 25 21:16 wiki-josepemo.txt
+Multiplexación jose luis pedemonte
+
+*****************
+nov 25 21:16 wiki-robertolear-1
+Seguridad de la capa 1 del modelo OSI - Capa Física
+
+*****************
+nov 25 21:18 wiki-juanpeca-2.txt
+Modelo OSI.
+
+Seguridad en la capa física.
+
+*****************
+nov 25 21:19 wiki-carlosjp-[2]
+Unidad de datos de protocolo
+
+*****************
+nov 25 21:22 wiki-juanmm-[2]
+Onda portadora
+
+*****************
+nov 25 20:36 wiki-noeliacg-1
+Seguridad de las capas del modelo OSI- Capa 2: Nivel de enlace
+
+*****************
+nov 25 21:25 wiki-noeliacg-[2-propuesta]
+microondas  satelites
+
+*****************
+nov 25 21:25 wiki-ignaciogl-2
+Antenas planas
+
+*****************
+nov 25 21:43 wiki-salvadormope-2
+
+ATENUACION.
+
+*****************
+nov 26 17:17 wiki-franciscopaac-2
+Comunicación paralela (Capa física)
+
+*****************
+nov 26 17:17 wiki-robertolear-2
+Comunicación en serie (Capa física)
+
+*****************
+nov 26 18:22 wiki-juanpeca-3
+Conversión digital-analógica
+
+*****************
+nov 27 16:23 wiki-mariarobe-3
+Red de Área Amplia WAN
+
+*****************
+nov 27 16:25 wiki-maurofq-2
+broadcast domain
+

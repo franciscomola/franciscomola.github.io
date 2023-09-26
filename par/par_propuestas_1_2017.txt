@@ -1,0 +1,100 @@
+*****************
+nov  9 18:09 wiki-mariacg-1
+Corrección de errores hacia delante (FEC)
+
+*****************
+nov  9 18:09 wiki-mariacg-2
+La señalización digital.
+
+*****************
+nov  9 18:12 wiki-juanbaro
+Conmutacion de paquetes 
+
+*****************
+nov 11 16:08 wiki-franciscomegu
+comunicaciones inalámbricas ópticas (OWC)
+
+*****************
+nov 11 16:13 wiki-IvánMolina-1
+ATM: modo de transferencia asíncrona.
+
+*****************
+nov 11 16:16 wiki-alejandrobrca[modelodereferencia].txt
+Definición de modelo conceptual.
+
+*****************
+nov 11 16:16 wiki-chulemi-1
+Este es el enlace https://es.wikipedia.org/wiki/Cable_coaxial
+
+*****************
+nov 11 16:17 wiki-antoniomeco1
+Throughput --> Traducción a Español de parte del artículo
+https://en.wikipedia.org/wiki/Throughput
+
+*****************
+nov 11 16:17 wiki-franciscobesa[1]
+https://es.wikipedia.org/wiki/WPAN redes de área local
+
+*****************
+nov 11 16:17 wiki-alvaroorgu[-1]
+Fibra óptica de propósito especial.
+
+https://en.wikipedia.org/wiki/Optical_fiber#Special-purpose_fiber
+
+*****************
+
+*****************
+
+*****************
+nov 11 16:23 wiki-franciscomegu[nº2]
+Interferencia electromagnética
+
+*****************
+nov 11 16:23 wiki-franciscomegu[nº1]
+COMUNICACIONES INALÁMBRICAS ÓPTICAS
+
+*****************
+nov 11 16:25 wiki-joaquinlude
+Visible light communication
+https://en.wikipedia.org/wiki/Visible_light_communication
+
+*****************
+nov 11 16:25 wiki-rafaelmoro1
+atenuación---Traducción a Español de parte del artículo en ingles que es mucho más extenso
+
+*****************
+nov 11 16:26 wiki-diegogoel
+Virtual circuit
+
+https://en.wikipedia.org/wiki/Virtual_circuit
+
+*****************
+nov 11 16:29 wiki-fcojaviergarrido
+Me gustaría hablar sobre la fibra óptica
+
+*****************
+
+*****************
+
+*****************
+nov 11 16:47 wiki-franciscobesa[2]
+https://en.wikipedia.org/wiki/Z-Wave Z-Wave
+
+*****************
+nov 11 16:55 wiki-joaquinlude[2]
+Near Field Communication
+https://en.wikipedia.org/wiki/Near_field_communication
+
+*****************
+nov 11 16:57 wiki-josegabe[1]
+Quiero hablar sobre los modem dsl, su hardware, etc..
+
+*****************
+nov 11 16:58 wiki-fcojaviergarrido(1)
+Bandwidth
+
+*****************
+nov 11 17:03 wiki-pablocouce
+Antena parabólica
+
+

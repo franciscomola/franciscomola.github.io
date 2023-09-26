@@ -1,0 +1,16 @@
+*****************
+may  4 16:15 wiki-fernandogugo.txt
+https://en.wikipedia.org/wiki/Nmap
+
+Propuesta de ampliacion y traduccion de la wikipedia sobre el comando nmap de ingles a espanol
+
+*****************
+may  5 20:25 wiki-luisvava.txt
+https://en.wikipedia.org/wiki/Virtual_private_network
+Articulo de wikipedia
+
+*****************
+may  5 20:29 wiki-albertomave.txt
+Mi propuesta: Traducir HTTP/2 al español
+pagina en ingles https://en.wikipedia.org/wiki/HTTP/2_Server_Push
+

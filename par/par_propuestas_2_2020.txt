@@ -1,0 +1,44 @@
+*****************
+feb 19 16:57 wiki-miguelgulu-1.txt
+Ethernet Hub
+https://en.wikipedia.org/wiki/Ethernet_hub
+
+*****************
+feb 19 17:18 wiki-israelsibr.txt
+IEEE 802.11n
+
+INGLÉS: https://en.wikipedia.org/wiki/IEEE_802.11n-2009
+ESPAÑOL: https://es.wikipedia.org/wiki/IEEE_802.11n
+
+*****************
+feb 19 17:23 wiki-pablotose.txt
+IEEE 802.11ah
+
+https://en.wikipedia.org/wiki/IEEE_802.11ah
+
+*****************
+feb 19 17:29 wiki-diegogoel
+WPS
+
+https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup
+
+*****************
+feb 19 17:40 wiki-alvarojior
+IP ADDRESS
+
+https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP
+https://en.wikipedia.org/wiki/IP_address
+
+*****************
+feb 19 17:49 wiki-abrahamrome
+WPA2
+https://en.wikipedia.org/wiki/IEEE_802.11i-2004
+
+*****************
+feb 19 17:54 wiki-antoniosira
+Antonio Silva Ramírez
+
+https://es.wikipedia.org/wiki/Direcci%C3%B3n_MAC
+
+
+

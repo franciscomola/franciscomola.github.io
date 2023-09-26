@@ -1,0 +1,25 @@
+*****************
+feb 17 16:26 wiki-abrahamrome
+https://en.wikipedia.org/wiki/IEEE_802.11b-1999
+Abraham Rodriguez Medina
+IEEE 802.11b
+
+*****************
+feb 17 16:51 wiki-antoniosira
+antoniosira wikipedia- redes ad hoc 
+concretando en las aplicaciones:
+-inglés: https://en.wikipedia.org/wiki/Wireless_ad_hoc_network
+-español: https://es.wikipedia.org/wiki/Red_ad_hoc_inal%C3%A1mbrica
+
+*****************
+feb 17 16:57 wiki-miguelgulu.txt
+Miguel Guerrero Luna
+WLANs
+https://en.wikipedia.org/wiki/Wireless_LAN
+
+*****************
+feb 22 18:04 wiki-sergiocoma-1
+IEEE 8021.1X
+
+https://es.wikipedia.org/wiki/IEEE_802.1X
+

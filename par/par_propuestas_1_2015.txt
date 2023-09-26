@@ -1,0 +1,70 @@
+*****************
+nov 11 16:34 wiki-mariacg-1
+La señalización digital.
+ 
+
+*****************
+nov 11 16:40 wiki-emiliotelo
+(Throughput) ampliacion de la informacion
+
+*****************
+nov 11 16:52 wiki-carmenmobo-3
+conmutación de circuitos-ampliación y traducción
+Packet data unit-ampliación y traducción
+ATM-traducción
+
+*****************
+nov 11 17:16 wiki-Juansele
+https://es.wikipedia.org/wiki/Atenuación
+https://en.wikipedia.org/wiki/Attenuation
+
+*****************
+nov 11 17:19 wiki-juanjupe.txt
+admitancia
+https://es.wikipedia.org/wiki/Admitancia
+
+*****************
+nov 11 17:22 wiki-juanbaro
+Ampliacion de Circuitos de paquetes del ingles al español
+https://en.wikipedia.org/wiki/Packet_switching
+https://es.wikipedia.org/wiki/Conmutaci%C3%B3n_de_paquetes
+
+*****************
+nov 11 17:32 wiki-sergiomach
+Ampliación del artículo Circuito Virtual con ampliación del ingles al español:
+https://es.wikipedia.org/wiki/Circuito_virtual
+https://en.wikipedia.org/wiki/Virtual_circuit
+
+*****************
+nov 11 17:33 wiki-juanbeca-2
+https://en.wikipedia.org/wiki/De_facto_standard
+
+*****************
+nov 11 17:51 wiki-manuelpp-1
+Traducción de este artículo (ampliación del español): https://en.wikipedia.org/wiki/Mesh_networking
+
+*****************
+nov 11 17:52 wiki-jessicamode-1
+Traducción del francés al español:
+Minitel
+
+*****************
+nov 11 17:53 wiki-juanjupe-2.txt
+Ancho de banda
+
+
+*****************
+nov 11 17:53 wiki-antoniomeco[1]
+Network Delay
+
+
+
+*****************
+nov 16 20:27 wiki-josepago
+ampliacion de informacion del ingles al articulo de español SNR(relacion señal/ruido)
+
+*****************
+nov 16 20:34 wiki-juanjupe-3.txt
+wiki-juanjupe
+FAST PATH
+

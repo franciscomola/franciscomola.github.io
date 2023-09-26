@@ -1,0 +1,107 @@
+*****************
+nov  8 17:39 wiki-franciscobesa
+Waveguide
+https://en.wikipedia.org/wiki/Waveguide
+
+*****************
+nov  8 17:39 wiki-diegogoel
+antenas isotropicas
+
+https://en.wikipedia.org/wiki/Isotropic_radiator
+
+*****************
+nov  8 17:39 wiki-albertomaro-1
+traduccion de la pagina de la IEEE (https://en.wikipedia.org/wiki/IEEE_Standards_Association) a español ya que la version en español es muy reducida
+Pagina en español: https://es.wikipedia.org/wiki/IEEE_Standards_Association
+
+*****************
+nov  8 17:39 wiki-israelsibr
+ENCAPSULACIÓN:
+Español -> https://es.wikipedia.org/wiki/Encapsulaci%C3%B3n_(redes)
+Inglés -> https://en.wikipedia.org/wiki/Encapsulation_(networking)
+
+*****************
+nov  8 17:40 wiki-pablotose
+Pablo Toledo Segundo , Articulo Wikipedia Ancho de banda : 
+ 
+Español : https://es.wikipedia.org/wiki/Ancho_de_banda
+
+Inglés : https://en.wikipedia.org/wiki/Bandwidth_(signal_processing)
+
+*****************
+nov  8 17:41 wiki-miguelgulu
+Fibra óptica
+wiki-miguelgulu-1
+https://en.wikipedia.org/wiki/Optical_fiber
+
+*****************
+nov  8 17:42 wiki-alvarojior
+Señal Digital
+
+https://en.wikipedia.org/wiki/Digital_signal
+
+*****************
+nov  8 17:50 wiki-rubencosa
+Oversampling
+
+https://en.wikipedia.org/wiki/Oversampling
+
+*****************
+nov  8 17:51 wiki-juanmomu
+Antena Parabólicas.
+https://en.wikipedia.org/wiki/Parabolic_antenna
+
+
+*****************
+nov  8 17:51 wiki-israelsibr-2
+CROSS-LAYER
+
+https://en.wikipedia.org/wiki/Cross-layer_optimization
+
+*****************
+nov  8 17:52 wiki-ivanpepo-1
+Nyquist frecuency
+https://en.wikipedia.org/wiki/Nyquist_frequency
+
+*****************
+nov  8 17:54 wiki-juanreji
+Central Telefónica
+https://es.wikipedia.org/wiki/Central_telef%C3%B3nica
+https://en.wikipedia.org/wiki/Telephone_exchange
+
+*****************
+nov  8 17:55 wiki-sergiogume
+Baseband: 
+https://en.wikipedia.org/wiki/Baseband
+
+*****************
+nov  8 17:56 wiki-miguelgulu-2
+Antena isotrópica
+wiki-miguelgulu-2
+https://en.wikipedia.org/wiki/Isotropic_radiator
+
+*****************
+nov  8 17:56 wiki-antoniosira
+SEÑAL PERIÓDICA 
+https://en.wikipedia.org/wiki/Signal#Periodic_and_Aperiodic_Signals
+SOLO LA PERÓDICA NO EL RESTO
+
+*****************
+nov  8 18:02 wiki-luismiguelgarcia
+Duplex
+
+https://en.wikipedia.org/wiki/Duplex_(telecommunications)
+
+*****************
+nov 13 16:36 wiki-robertobega
+Roberto Beardo Garcia, articulo de wikipedia:
+https://es.wikipedia.org/wiki/L%C3%ADnea_de_abonado_digital
+
+
+*****************
+nov 15 16:39 wiki-abrahamrome
+FUNCIÓN
+
+Ingles: https://en.wikipedia.org/wiki/Network_layer
+Español: https://es.wikipedia.org/wiki/Capa_de_red
+

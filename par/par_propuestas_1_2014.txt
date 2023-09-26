@@ -1,0 +1,91 @@
+*****************
+nov 12 16:58 wiki-ignaciogela
+Ancho de banda - Bandwidth (signal processing)
+
+*****************
+nov 12 16:58 wiki-noeliacg.txt
+capas del modelo tcp/ip
+redes wan
+
+*****************
+nov 12 17:06 wiki-mariacg
+Señalización digital.
+
+*****************
+nov 12 17:07 wiki-carlosjp[1]
+BPSK
+
+*****************
+nov 12 17:08 wiki-franciscopaac
+Modulación por división ortogonal de frecuencia (OFDM)
+
+*****************
+nov 12 17:08 wiki-manuelpp-1
+netkit
+
+*****************
+nov 12 17:16 wiki-robertolear
+Comunicación serie
+
+*****************
+nov 12 17:17 wiki-albertosacr
+Retardo medio de encolado
+
+*****************
+nov 12 17:20 wiki-javierbc-p1
+Traducción y extensión del articulo del RG-6
+
+*****************
+nov 12 17:29 wiki-carlosjp[2]
+Modulación por duración de pulsos (PDM)
+
+*****************
+nov 12 17:31 wiki-franciscopaac-1
+modulación
+
+*****************
+nov 12 17:32 wiki-javiergapa
+Traduccion del apartado Channel utilization and efficiency del articulo en ingles sobre Throughput.
+
+*****************
+nov 12 17:35 wiki-alvaroorgu[-1]
+Fibra óptica multimodo (ampliación)
+
+*****************
+nov 12 17:47 wiki-javiersoro-1
+Traduccion del articulo "Delta Modulation" (Modulacion Delta), que no esta en la wiki española
+
+*****************
+nov 12 17:52 wiki-antoniomeco-1
+Remote Access Server - Servidor de acceso remoto --> Traducción a español de la introducción.
+
+http://en.wikipedia.org/wiki/Remote_Access_Service
+
+
+*****************
+nov 12 18:00 wiki-antoniomeco-2
+Tasa de error binario --> Bit error rate
+
+http://en.wikipedia.org/wiki/Bit_error_rate
+
+
+
+*****************
+nov 12 18:04 wiki-josemaga-2
+ARPANET
+o temás relacionados con la historia de la red.
+
+*****************
+nov 14 16:42 wiki-carmenmb-3
+1. Ethernet sobre cable de par trenzado ->ampliar 
+2. Fibra óptica multi-modo-> hacer de 0.
+3. Fibra óptica en monomodo-> hacer de 0.
+
+*****************
+nov 14 16:51 wiki-carlosjp[3]
+Redes de área amplia - Wide Area Network (Traducción del inglés)
+
+*****************
+nov 17 20:50 wiki-carlosjp[4]
+Modelo DecNET - Ampliación a partir del articulo en inglés
+

@@ -1,0 +1,54 @@
+*****************
+feb 15 21:07 wiki-mariacg
+802.11n
+
+*****************
+feb 15 21:10 wiki-emiliotelo
+Jumbo frame Traducion
+
+*****************
+feb 15 21:12 wiki-antoniomeco
+Traduccion de Banda ISM, incluyendo introducción, asignación de 
+frecuencias(con la tabla de ejemplos) e historia
+
+https://es.wikipedia.org/wiki/Banda_ISM
+https://en.wikipedia.org/wiki/ISM_band
+
+
+
+*****************
+feb 15 21:13 wiki-mariacg-2
+MTU
+
+*****************
+feb 15 21:17 wiki-josepago-2trim
+Media-independent interface(Traduccion al español)
+https://en.wikipedia.org/wiki/Media-independent_interface
+
+*****************
+feb 15 21:18 wiki-jessicamode
+Traducción y ampliación del francés al español:
+Content delivery network (CDN)
+https://fr.wikipedia.org/wiki/Content_delivery_network
+
+*****************
+feb 15 21:23 wiki-carmenmobo-3
+Beacon frame traducir
+Multiple Spanning Tree Protocol añadir articulo
+Li-Fi traducir
+
+*****************
+feb 15 21:26 wiki-juansele
+https://en.wikipedia.org/wiki/Packet_forwarding
+
+*****************
+feb 15 21:31 wiki-juanjupe.txt
+Puerta de enlace
+
+*****************
+feb 15 21:31 wiki-carmenmobo-4
+Beacon frame traducir
+Multiple Spanning Tree Protocol añadir articulo
+Li-Fi traducir
+CDN traducir y ampliar
+

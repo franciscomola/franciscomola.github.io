@@ -1,0 +1,51 @@
+*****************
+2011-01-25 18:27 wiki-manuello-MFSK
+Multiple frequency-shift keying
+
+*****************
+2011-01-31 19:57 wiki-juansr
+propuesta:
+Modem RTB
+
+*****************
+2011-01-31 19:59 wiki-juangd
+Correccion De Errores - CRC
+
+*****************
+2011-01-31 20:09 wiki-isaacsb
+wiki-isaacsb
+propuesta: Switch vs Bridges 
+
+*****************
+2011-01-31 21:53 wiki-juanluinp
+       Conmutacion de flujo-wiki-juanluisnp	
+
+
+*****************
+2011-02-02 16:17 wiki-cristianmh-1
+Distintos usos de PMA(Pulse-amplitude modulation)
+
+*****************
+2011-02-04 18:32 wiki-juanpa-1.txt
+Ampliación de espectro expandido con el método de la secuencia diecta o DSSS.
+
+*****************
+2011-02-04 19:23 wiki-isabelrg-2
+subcapa LLC (aumentar artículo)
+
+*****************
+2011-02-04 19:24 wiki-isabelrg-02
+subcapa LLC (aumentar artículo)
+
+*****************
+2011-02-04 19:26 wiki-alejandrapr-BPDUs
+Extender lo que viene en el artículo de la wikipedia sobre el Bridge Protocol Data Units (BPDUs)
+
+*****************
+2011-02-07 20:45 wiki-adrianrd
+Multiplexión estática.
+
+*****************
+2011-02-07 20:45 wiki-yasminadn
+Multiplexión dinámica o estadística.
+

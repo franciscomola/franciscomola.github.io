@@ -1,0 +1,68 @@
+*****************
+may 12 20:24 wiki-juanespr.txt
+IEEE 802.1s - 2005 Multiple Spanning Tree Protocol (MSTP)
+http://en.wikipedia.org/wiki/Spanning_tree_protocol#Multiple_Spanning_Tree_Protocol
+http://es.wikipedia.org/w/index.php?title=IEEE_802.1s&action=edit&redlink=1
+*****************
+may 12 20:27 wiki-mariagupa.txt
+IANA
+
+*****************
+may 13 17:12 wiki-joseer-1
+Brouter
+
+*****************
+may 13 17:14 wiki-carlosjp.txt
+Bandera PSH
+
+*****************
+may 13 17:16 wiki-maurofq-1
+stateful firewall
+
+*****************
+may 13 17:18 wiki-javierbc-1.txt
+Traduccion e incremento de informacion en el articulo en español sobre el IGMP:
+
+http://es.wikipedia.org/wiki/IGMP
+
+*****************
+
+*****************
+
+*****************
+may 13 17:20 wiki-mariacg-1
+Unidad Máxima de Transferencia
+
+*****************
+may 13 17:20 wiki-mariacg-2
+IPv4
+
+*****************
+
+*****************
+
+*****************
+may 13 17:23 wiki-juanmm-2
+ISP
+
+*****************
+may 13 17:23 wiki-juanmm-1
+puerta de enlace
+
+*****************
+may 13 17:26 wiki-joseer-2
+IANA
+
+*****************
+may 13 17:27 wiki-joseer-3
+ICANN
+
+
+*****************
+may 13 17:28 wiki-carlosjp-2.txt
+Hots
+
+*****************
+may 13 17:32 wiki-carlosjp-3.txt
+Host (network)
+

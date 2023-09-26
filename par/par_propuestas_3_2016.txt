@@ -1,0 +1,20 @@
+*****************
+nov  9 18:09 wiki-mariacg-1
+Corrección de errores hacia delante (FEC)
+
+*****************
+nov  9 18:09 wiki-mariacg-2
+La señalización digital.
+
+*****************
+nov  9 18:12 wiki-juanbaro
+Conmutacion de paquetes 
+
+*****************
+nov 11 16:08 wiki-franciscomegu
+comunicaciones inalámbricas ópticas (OWC)
+
+*****************
+nov 11 16:13 wiki-IvánMolina-1
+ATM: modo de transferencia asíncrona.
+

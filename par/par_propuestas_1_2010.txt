@@ -1,0 +1,40 @@
+*****************
+dic  3 18:54 wiki-cristianmh-1
+Servicios(Modelo OSI)
+
+*****************
+dic  3 18:55 wiki-Isabel-1
+*Error detection and correction 
+--> (El articulo no esta traducido al español)
+
+*****************
+dic  3 19:01 wiki-manuello
+blindaje del cable y cable de núcleo sólido frente a cable trenzado
+
+*****************
+dic  3 19:30 wiki-angeldavidmarquezmedina
+tipos de codecs
+
+*****************
+dic  3 19:33 wiki-adrianrd-1
+Netkit
+
+*****************
+dic  3 19:55 wiki-juanantonio
+propuesta:
+EL Espectro de la Señal
+
+*****************
+dic  3 19:58 wiki-juanpa
+Propuesta:
+Conexiones transoceánicas de Fibra Optica entre Europa y EEUU.
+Nota: en la página de wikipedia dedicada a la fibra óptica no viene nada sobre las actuales conexiones transoceánicas. Existe un artículo similar en la edición inglesa de wikipedia, pero ninguna documentación en español.
+
+*****************
+dic  3 20:01 wiki-yasminadn
+Topologia de red. Ampliación.
+
+*****************
+dic 10 16:35 wiki-sarage
+Handshake
+

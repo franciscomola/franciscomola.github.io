@@ -1,0 +1,13 @@
+*****************
+may 10 16:38 wiki-alvaroorgu-2
+NAT (traducir del inglés, puntos Issues and limitations y NAT and TCP/UDP)
+https://en.wikipedia.org/wiki/Network_address_translation
+
+*****************
+may 10 16:38 wiki-juanbaro
+Teredo
+
+*****************
+may 10 16:46 wiki-joseouas2.txt
+Tecnica PCP.
+

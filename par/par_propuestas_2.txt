@@ -1,0 +1,22 @@
+*****************
+mar  3 21:24 wiki-fernandogugo.txt
+
+Propuesta para la ampliacion de informacion en la wikipedia en espanol sobre CGNAT.
+
+https://es.wikipedia.org/wiki/Carrier_Grade_NAT -- Enlace wikipedia, CG NAT
+
+*****************
+mar  3 21:27 wiki-luisvava.txt
+Propuesta de ampliación de Bluetooth
+https://es.wikipedia.org/wiki/Bluetooth
+
+*****************
+mar  8 17:36 wiki-albertomave.txt
+usuario:albertomave03
+
+Propuesta: traducir del ingles al español de STP (Spanning Tree Protocol)
+
+Pagina en español: https://es.wikipedia.org/wiki/Spanning_tree
+
+Pagina en ingles: https://en.wikipedia.org/wiki/Spanning_Tree_Protocol
+

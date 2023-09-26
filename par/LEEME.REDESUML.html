@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>MECANISMOS DE RED DE UML</title></head>
+<body>
+<h3>MECANISMOS DE RED DE UML</h3>
+<br>
+<h4>0) Manejo de las instancias uml: <br>
+</h4>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+*uml_mconsole (consultar man):<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; $ uml_mconsole umlname config
+dev=...<br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; $ uml_mconsole umlname remove
+dev&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<br>
+</p><h4>1) Acceso al anfitrión</h4>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+*tuntap (TUN/TAP controlado por uml_net): ethX=tuntap,tapdev,MAC,hostIP<br>
+</p><h4>2) Redes aisladas</h4>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; *uml_switch (proceso que
+implementa un switch o hub virtual): ethX=daemon,MAC,unix,socketpath</p>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; $ uml_switch [-unix socketpath] [-hub] [-tap tapdev]</p>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; *multicast (red de multidifusión
+UDP para transmitir tramas entre UMLs como un hub):
+ethX=mcast,MAC,mcastIP,puerto,TTL &nbsp;&nbsp;
+&nbsp;&nbsp; &nbsp;</p>
+<h4>3) Ejemplo</h4>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; * Configuración de la capa de
+enlace para un anfitrión + 3 umls formando 3 redes + red externa:</p>
+<p style="text-align: center;"><img style="width: 50%; height: 50%;" alt="redes uml" title="redes uml" src="redesuml.png"><br>
+</p>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; $ uml_mconsole uml1 config eth0=mcast,82:a7:0e:8c:e4:10</p>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; $ uml_mconsole uml2 config eth0=mcast,82:a7:0e:8c:e4:20</p>
+<p><br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; $
+uml_mconsole uml3 config eth0=mcast,82:a7:0e:8c:e4:30,239.192.168.2,1103</p>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ uml_mconsole uml2 config
+eth1=mcast,82:a7:0e:8c:e4:21,239.192.168.2,1103</p>
+<p><br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; $
+uml_switch -tap tap0 # es necesario arrancar /etc/init.d/uml_switch</p>
+<p><br>
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; $
+uml_mconsole uml1 config eth1=daemon,82:a7:0e:8c:e4:11</p>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; $ uml_mconsole uml3 config eth1=daemon,82:a7:0e:8c:e4:31&nbsp;&nbsp; &nbsp;<br>
+</p><h4>4) Tu tarea</h4>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; * Configuración del enrutamiento de los nodos de la red de forma que todos los nodos tengan conexión entre sí y con el exterior</p><p>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $ echo 1 &gt;
+/proc/sys/net/ipv4/ip_forward &nbsp;# activa el enrutamiento de un nodo
+(tanto si hace NAT como si no lo hace)</p><p>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; * Configuración del nodo uml3 (o uml1) para que haga
+SNAT al nodo uml2&nbsp; de forma que todos los nodos tengan conexión
+entre sí y con el exterior. Para hacer SNAT tenemos dos opciones:</p><p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $ iptables -t nat -A POSTROUTING [ -o <span style="font-style: italic;">interfaz de salida</span>| -s <span style="font-style: italic;">ip de origen</span> | -d <span style="font-style: italic;">ip de destino</span> ] &nbsp;-j MASQUERADE # para direcciones ip dinámicas</p><p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $ iptables -t nat -A POSTROUTING [ -o <span style="font-style: italic;">interfaz de salida</span>| -s <span style="font-style: italic;">ip de origen</span> | -d <span style="font-style: italic;">ip de destino</span> ] &nbsp;-j&nbsp; SNAT &nbsp;--to-source <span style="font-style: italic;">ip de origen para el snat </span>&nbsp;# para direcciones estáticas&nbsp;</p><p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; *&nbsp; Configuración del nodo uml3 (o uml1) para que haga DNAT a algún servico a elegir del nodo uml2&nbsp;de
+forma que todos los nodos tengan conexión entre sí y con el exterior.
+Para hacer DNAT:</p><p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; $ iptables -t nat -A PREROUTING [-p <span style="font-style: italic;">protocolo</span> [--dport <span style="font-style: italic;">puerto</span>]] [ -i <span style="font-style: italic;">interfaz de entrada</span>| -s <span style="font-style: italic;">ip de origen</span> | -d <span style="font-style: italic;">ip de destino</span> ] &nbsp;-j&nbsp; SNAT &nbsp;--to-destination&nbsp;<span style="font-style: italic;">ip[-ip][:puerto-puerto]</span></p>
+</body></html>

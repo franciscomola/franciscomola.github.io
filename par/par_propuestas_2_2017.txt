@@ -1,0 +1,73 @@
+*****************
+feb 15 16:15 wiki-ivanmolina-1
+Tecnología LiFi
+
+*****************
+feb 15 16:18 wiki-alejandrobrca-uno
+Ampliación del articulo en español de Wireshark.
+https://es.wikipedia.org/wiki/Wireshark
+
+*****************
+feb 15 16:20 wiki-mariacg
+IEEE 802.11n
+
+*****************
+feb 15 16:20 wiki-antoniomeco1
+MODELO TCP/IP (Ampliar)
+
+https://es.wikipedia.org/wiki/Modelo_TCP%2FIP
+
+*****************
+feb 15 16:21 wiki-alvaroorgu-1
+Tramas ACK
+
+*****************
+feb 15 16:21 wiki-josegabe1
+High Level Data Link Control
+
+*****************
+feb 15 16:22 wiki-franciscobesa
+Media-independent interface
+
+*****************
+feb 15 16:26 wiki-juanbaro
+﻿Unidad maxima de transferencia
+
+*****************
+feb 15 16:41 wiki-rafaelmoro
+Banda ISM
+https://es.wikipedia.org/wiki/Banda_ISM
+
+*****************
+feb 15 16:47 wiki-alvaroorgu-2
+IPv4 (segunda parte a dividir con Mr. OUTERELO)
+
+*****************
+feb 15 16:48 wiki-fmedina1
+media-independent interface
+
+*****************
+feb 15 16:49 wiki-ivanmolina-2
+Service set (802.11 network)
+
+*****************
+feb 15 16:51 wiki-fmedina2
+media-independent interface
+
+*****************
+feb 15 16:52 wiki-fmedina3
+IGMP
+
+*****************
+feb 15 16:53 wiki-joseouas-2
+IPv4 (Allocation y Special-use addresses)
+https://en.wikipedia.org/wiki/IPv4#Addressing
+
+*****************
+feb 15 16:55 wiki-alvaroorgu-3
+IPv4 Fragmentation and reassembly
+
+*****************
+feb 15 16:56 wiki-joseouas
+IPv4 Addressing
+

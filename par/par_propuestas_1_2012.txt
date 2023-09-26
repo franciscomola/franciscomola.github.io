@@ -1,0 +1,139 @@
+*****************
+2013-01-09 22:07 wiki-danielro-1
+PPPoA
+
+*****************
+2013-01-14 16:21 wiki-javierbc-1
+Titulo Wikipedia: 
+Traduccion de la pagina inglesa de CableModem a español, para rellenar informacion de este ultimo.
+
+
+*****************
+2013-01-14 16:21 wiki-Josedb
+Modulación
+
+*****************
+2013-01-14 16:23 wiki-carlosvg-Multiplexación
+Multiplexación
+
+*****************
+2013-01-14 16:29 wiki-javierguga-1
+Las tipologías LAN
+
+*****************
+2013-01-14 16:30 wiki-mariopaal-1
+Inhibidores de frecuencia/Perturbador
+
+*****************
+2013-01-14 16:31 wiki-fcosb[1].txt
+﻿
+FLAVIA, Flexible Architecture for Virtualizable future wireless Internet Access. Una arquitectura flexible para el acceso a Internet inalámbrico y futuro virtualizable.
+
+
+
+*****************
+2013-01-14 16:37 wiki-joseed-netkit
+wiki-joseed-netkit
+
+*****************
+2013-01-14 16:33 wiki-carlosjp
+wiki-carlosjp-linea de alta velocidad binaria
+
+*****************
+2013-01-14 16:33 wiki-manuelgp-[1]
+IEEE_802.11
+
+*****************
+2013-01-14 16:33 wiki-Mmiranda-[1]
+cable coaxial
+
+*****************
+2013-01-14 16:33 wiki-juanrp
+wiki-juanrp-pathping
+
+*****************
+2013-01-14 16:36 wiki-susanamoru
+Modelo de Comunicaciones
+
+*****************
+2013-01-14 16:36 wiki-mmiranda
+Cable Coaxial
+
+
+*****************
+2013-01-14 16:37 wiki-manuelam-atenuacion
+Atenuacion (de una señal)
+
+*****************
+2013-01-14 16:37 wiki-joseed-netkit
+wiki-joseed-netkit
+
+*****************
+2013-01-14 16:38 wiki-antoniomafe
+Compresíon de datos
+
+*****************
+2013-01-14 16:41 wiki-manuelgr-1
+traduccion articulo frecuencia media. http://en.wikipedia.org/wiki/Medium_frequency
+
+*****************
+
+*****************
+
+*****************
+2013-01-14 16:47 wiki-franciscopg-[1]
+protocolo de Intel Widi
+
+*****************
+2013-01-14 16:49 wiki-javierbc[1]
+Cablemodem
+
+*****************
+2013-01-14 16:50 wiki-javierbc[1].txt
+Cablemodem
+
+*****************
+2013-01-14 16:54 wiki-josedb-2
+Modulación por Duración de Pulso.
+
+*****************
+2013-01-14 16:57 wiki-josedb-3
+Desmodulación
+
+*****************
+2013-01-14 17:00 wiki-yerayjiba
+http://en.wikipedia.org/wiki/Radio_broadcasting
+
+*****************
+2013-01-14 17:01 wiki-javierbc[2].txt
+Conector RG6
+
+*****************
+2013-01-14 17:02 wiki-ivanng-1
+traducir Hilo de cobre (que es una página aún no redactada) del ingles al español (la pagina en ingles es Copper wire and cable)
+
+*****************
+2013-01-14 17:20 wiki-carlosvg-2
+Multi-user MIMO
+
+*****************
+2013-01-14 17:21 wiki-susanamoru-2
+Banda Ancha
+
+*****************
+2013-01-14 17:21 wiki-yerayjiba-2
+http://en.wikipedia.org/wiki/Shortwave
+
+*****************
+2013-01-14 17:26 wiki-antoniomafe-2
+Compresíon con pérdida 
+
+*****************
+2013-01-14 17:32 wiki-ivanng-2
+http://es.wikipedia.org/wiki/Fabricacion_de_la_fibra_optica  traduccion del español al ingles
+
+
+*****************
+2013-01-14 17:33 wiki-maurofq-1
+Copper wire and cable
+
