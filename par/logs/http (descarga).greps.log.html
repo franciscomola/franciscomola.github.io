@@ -1,0 +1,5 @@
+egrep  "Len: 0$" http\ \(descarga\).txt.log |wc -l
+egrep "\[ACK\]" http\ \(descarga\).txt.log |wc -l
+egrep  "Len: [1-9][0-9]*" http\ \(descarga\).txt.log |wc -l
+egrep  "HTTP" http\ \(descarga\).txt.log |wc -l
+egrep  "Dst Port: www.+ Len: [1-9][0-9]*" http\ \(descarga\).txt.log |wc -l
