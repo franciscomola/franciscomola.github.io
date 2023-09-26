@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LA CAPA FÍSICA: TRANSMISIÓN DE DATOS</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# **PAR  -   Unidad 3**
+# **LA CAPA FÍSICA: TRANSMISIÓN DE DATOS**
+
+---
+
+# **[Terminología](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema03/Teoria.html) (1) - transmisión**
+
+* **Transmisor**
+
+* **Receptor**
+
+* **Medio de trasmisión**:
+	- medio **guiado**
+		- p.e.  cable de par trenzado, fibra óptica
+
+	- medio **no guiado**
+		- p.e. aire, agua, vacío
+
+* **Señal**
+	- ondas electromagnéticas
+
+---
+
+# **Terminología (2) - Conexión**
+
+* **Enlace directo**
+	- sin dispositivos intermedios (excluidos amplificadores y repetidores)
+
+* **Punto a punto**
+- enlace directo
+- típico de las WANs 
+- sólo 2 dispositivos comparten el enlace
+		- p. e. conexión a Internet por módem telefónico
+
+* **Multipunto**
+	- típico de las LANs y MANs
+	- más de dos dispositivos comparten el enlace
+		- p.e. conexión a Internet por modem cable 
+
+---
+
+# **Terminología (3) – Dirección **
+
+* **Simplex**
+	- un sentido
+		- p.e. Televisión
+
+* **Semiduplex**
+	- en cualquier sentido, pero solo un sentido a la vez
+		- p.e. Walkie-talkie (¿por qué?)
+
+* **Duplex**
+	- ambos sentidos al mismo tiempo
+		- p.e  Teléfono (¿cómo?)
+		- ver Deadwood s3e3 (27’:37’’-28’:35’’)
+
+ 
+---
+
+# **Terminología (4) - Destino**
+
+* **Difusión (broadcast)**
+
+	- Envío de los mismos datos a todos los dispositivos de la red. 
+		- p. e. Televisión 
+
+* **Unidifusión (unicast)**
+
+	- Envío de los datos a un único dispositivo de la red. 
+		- p. e.  FTP
+
+* **Multidifusión (multicast)**
+
+	- Envío de los mismos datos a un grupo determinado de dispositivos de la red. 
+		-p. e. Videoconferencia
+
+ 
+---
+
+# **Estudio de las señales (físicas)**
+
+* **Señal** es la variación en el tiempo de una magnitud física, p.e. el potencial eléctrico, utilizada para la transmisión de información 
+	- **Analógica**: varía de forma continua (y 'no muy brusca') en el tiempo, tomando infinitos valores
+	- **Digital**: salta (de forma brusca) entre niveles discretos a lo largo del tiempo, tomando un número finito de valores
+
+* **Periódica**: tiene un patrón repetido a lo largo del tiempo 
+
+* **Aperiódica**: tiene un patrón no repetido a lo largo del tiempo
+
+ 
+---
+
+# **Señales Analógicas y Digitales**
+
+![Señales Analógicas y Digitales ](03-1-07.jpg "Señales Analógicas y Digitales ")
+
+ 
+---
+
+# **Señales Periódicas**
+
+![Señales Periódicas](03-1-08.jpg "Señales Periódicas")
+
+---
+
+# **Onda Seno**
+ 
+* **Amplitud**  máxima(A) 
+
+	- máxima desviación del centro de la señal 
+	- p.e. voltios
+
+* **Frecuencia** (f)
+
+	- nº de ciclos por unidad de tiempo
+	- se mide en hercios (Hz) o ciclos por segundo
+	- **Periodo** (T) = tiempo en repetir un ciclo  (T=1/f)
+
+* **Fase** (φ)
+
+	- la fase mide la posición relativa de una señal con respecto al inicio de su propio ciclo o a la posición de otra señal 
+	- se mide en grados (o radianes)
+ 
+---
+
+# **Ondas Seno s(t) = A sin(2πft +φ)**
+ 
+![Variaciones de Ondas Seno](03-1-10.jpg "Variaciones de Ondas Seno")
+ 
+---
+
+# **Longitud de onda (λ)**
+
+* Es el periodo espacial de una onda periódica o 
+
+* La distancia recorrida por una señal periódica en un periodo 
+
+* Asumiendo una velocidad de propagación v:
+
+	- **λ =  vT = v (1/f)**
+	- λf = v
+	- por ejemplo, la velocidad de propagación de la luz en el vacío es  c = 3*10<sup>8</sup> ms<sup>-1</sup>
+ 
+---
+
+# **Espectro y Ancho de banda**
+
+* **Espectro**
+
+	- rango de frecuencias contenido en una señal
+
+* **Ancho de banda absoluto**
+
+	- ancho del espectro
+
+* **Ancho de banda efectivo**
+
+	- o simplemente, ancho de banda
+
+	- la banda más estrecha de frecuencias que contiene la mayor parte de la energía
+
+---
+
+# **[Trasmisión  de Datos](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema03/Teoria.html#datos-y-codificaciones)  - Esquema**
+
+![Trasmisión  de Datos](03-1-13.jpg "Trasmisión  de Datos")
+
+ 
+---
+
+# **Trasmisión de datos y señales**
+
+* **Dato**: producto de la conversión de señales en símbolos
+
+* **Señal**: magnitud física que se propaga variando de forma continua en el espacio y en el tiempo
+
+	- se puede producir señales para representar símbolos, o sea, datos
+
+* Tipos de trasmisión 
+
+	- **banda ancha**: la señal original se envía “sobre” otra señal más apta para viajar por el medio en un proceso llamado **modulación** (mediante un **modem**)
+	- **banda base**: la señal se envía **sin modular** 
+
+---
+
+# **Trasmisión de datos y señales II**
+
+* En **los s. analógicos**, los datos se envían tal cual, <u>sin procesar su 'contenido'</u>, o sea, **sin digitalizarlos** (p.e. telefonía tradicional) 
+
+	- sí se pueden transformar para facilitar su propagación (p.e. radio): **modulación**
+
+* En **los s. digitales**, los datos se envían tras someterlos a una **conversión analógica-digital (CAD)**, o sea, <u>procesando su 'contenido'</u> antes 
+
+	- esto permite su posterior procesamiento (codificación, compresión, encriptación, etc.) y afrontar mejor las dificultades de la transmisión 
+	- la señal resultante **también puede modularse** 
+ 
+---
+
+# **Datos digitales y analógicos**
+
+* Datos analógicos: no codificados por el sistema de trasmisión. Sí son interpretados (o codificados) por el “usuario final“ (p.e. teléfono tradicional)
+	- [1930s How Photographs Were Transmitted by Wire](https://www.youtube.com/watch?v=cLUD_NGE370)
+
+* Datos digitales: codificados por el propio sistema de trasmisión, aparte de por el “usuario final“ (p.e. teléfono IP)
+	- el **codec** o codificador-decodificador es el dispositivo que hace dicha conversión
+		- ***codec*** también se usa también para referirse  a cualquier software que  convierte entre diversos formatos o códigos digitales 
+
+---
+
+# **Señales analógicas y digitales** 
+
+* **Señal analógica**
+
+	- continuamente variable: puede tomar una infinidad de valores (frecuencia y amplitud) dentro de un límite superior e inferior 
+
+* **Señal digital**
+
+	- aquella cuyas dimensiones (tiempo y amplitud) no son continuas sino discretas, lo que significa que la señal necesariamente ha de tomar un número finito de valores fijos predeterminados
+
+ 
+---
+
+# **La voz como señal analógica**
+
+![La voz como señal analógica](03-1-18.jpg "La voz como señal analógica")
+
+
+---
+
+# **La señal digital en el PC** 
+
+![La señal digital en el PC](03-1-19.jpg "La señal digital en el PC")
+
+
+---
+
+# **Señales analógicas para datos analógicos y digitales**
+
+![Señales analógicas para datos analógicos y digitales](03-1-20.jpg "Señales analógicas para datos analógicos y digitales")
+
+---
+
+# **Señales digitales para datos analógicos y digitales**
+
+![Señales digitales para datos analógicos y digitales](03-1-21.jpg "Señales digitales para datos analógicos y digitales")
+
+---
+
+# **Difusión señal analógica**
+
+* Puede transportar datos analógicos o digitales (mediante modulación)
+
+* La integridad peligra por el ruido, atenuación, etc.  
+
+* Se usan amplificadores para aumentar la potencia de la señal
+
+	- pero también amplifican el ruido
+
+ 
+---
+
+# **Difusión señal digital**
+
+* El contenido está codificado: transporta <u>datos digitales</u>
+
+* La integridad peligra por el ruido, atenuación, etc.
+
+* Se usan repetidores: 
+
+	- van recibiendo la señal
+	- extraen el patrón de bits
+	- lo retransmiten
+
+* Así se supera la atenuación sin amplificar el ruido 
+
+---
+
+# **Trasmisión datos digitales**  
+
+* Tecnología digital 
+
+* Integridad de los datos 
+
+	- bajo coste de la  tecnología LSI/VLSI/ULSI 
+	- mayores distancias y menos errores sobre líneas de igual calidad
+
+* Capacidad de utilización
+
+	- mayor aprovechamiento del ancho de banda  
+	- se comparte mejor el medio entre distintos flujos de datos 
+
+* Seguridad y privacidad
+
+* Integración
+
+	- encriptación y autentificación
+	- uniformidad en el tratamiento de los datos, ya sean estos en origen analógicos o digitales.
+
+---
+
+# **[Dificultades en la trasmisión](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema03/Teoria.html#perturbaciones-en-la-transmision)**
+
+* La señal recibida puede diferir de la señal transmitida
+
+	- analógica: por degradación de la calidad de la señal 
+	- digital: por errores en los bits
+
+* Causadas por 
+
+	- **atenuación**
+	- **distorsión**
+	- **ruido**
+
+---
+
+# **Atenuación**
+
+* La potencia de la señal decae con la distancia
+
+* Depende del medio
+
+* La fuerza de la señal recibida:
+
+	- debe ser suficiente para ser detectada
+	- debe se suficientemente mayor que el ruido para ser recibida sin error
+
+* La atenuación aumenta con la frecuencia, por tanto, se distorsiona (podemos decir que el medio actúa como un ecualizador)
+
+* Se mide en db/m@hz 
+
+ 
+---
+
+# **Atenuación - Señales Digitales** 
+
+![Atenuación - Señales Digitales](03-1-27.jpg "Atenuación - Señales Digitales")
+ 
+---
+
+# **Ruido (1)**
+
+* Señal no deseada que se suma a la deseada 
+
+* **Térmico o ruido blanco**
+
+	- debido a agitación térmica de los electrones
+	- uniformemente distribuida
+
+* **Diafonía**
+
+	- inducción que provoca un par conductor en otro par cercano
+
+	- cercana/lejana al extremo: acoplamiento que tiene lugar cuando la señal  a transmitir entra en el cable y retorna a través del otro par conductor en el mismo/opuesto extremo del enlace
+
+ 
+---
+
+# **Ruido (2)**
+
+* **Impulsivo**
+
+	- pulsos irregulares  o afilados, de gran amplitud
+	- p.e. interferencia electromagnética externa  
+	- corta duración (pero su efecto depende de la velocidad)
+
+ 
+---
+
+# **Capacidad de canal**
+
+* **Capacidad o Tasa de datos de un canal**
+
+	- velocidad máxima a la que los datos pueden ser transmitidos a través de un canal
+	- se mide en símbolos/seg. (baudios) o bits/seg.
+
+* **Ancho de banda**
+
+	- el espectro de frecuencias que el medio permite pasar 
+	- se mide en ciclos por segundo o hercios (Hz)
+
+* **Tasa de errores**
+
+	- mide el número de unos que se convierten en ceros y viceversa de forma no querida durante la trasmisión 
+	- se mide cada cuántos bits se produce un error
+
+ 
+
+---
+
+# **Capacidad máxima de un canal (sin ruido)**
+
+* Relaciona la dependencia entre el ancho de banda y la capacidad de un canal **sin ruido**  
+
+* Un medio con un **ancho de banda B** tiene una **capacidad** de **2 \* B (baudios)**
+
+	- un **baudio** es un símbolo por segundo
+	- si la señal es **binaria**, la capacidad para B Hz es de **2 \* B (bps)**
+
+* En general, la capacidad es función del número de símbolos (M) que use la señal:
+
+	- **C = 2 \* B \* log<sub>2</sub>M**  (recordar: log<sub>2</sub>X=log<sub>10</sub>X/log<sub>10</sub>2)
+	
+* Por tanto, <u>al aumentar el número de símbolos (M), la capacidad aumenta</u> 
+
+ 
+---
+
+# **Capacidad de un canal (con ruido)**
+   
+* Tiene en cuenta **el ruido** y la tasa de error: 
+
+	- a mayor tasa de datos más se acorta la duración de los bit, así las ráfagas de ruido afecta a más bits
+	- por tanto, a un nivel dado de ruido, altas tasas de datos implican mayores tasas de error 
+
+* La **relación señal-ruido (SNR = P<sub>señal</sub>/P<sub>ruido</sub>)** se suele medir en [decibelios](https://es.wikipedia.org/wiki/Decibelio): 
+	
+	- **SNR<sub>db</sub> = 10 * log<sub>10</sub>(P<sub>señal</sub>/P<sub>ruido</sub>)**
+
+* **Capacidad del canal**, se mide en **bps**:
+	
+	- **C = B * log<sub>2</sub>(1+SNR)**
+
+* Representa el límite teórico libre de error 
+
+	- se usa junto con la capacidad máxima para calcular el máximo número de símbolos que se puede usar
+	- [ejemplo](https://es.wikipedia.org/wiki/Teorema_de_Shannon-Hartley#Ejemplos_num.C3.A9ricos) de la capacidad máxima del modem RTB
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

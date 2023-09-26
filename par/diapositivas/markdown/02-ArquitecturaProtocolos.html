@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>La Arquitectura de las Redes de Comunicación</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# **PAR - Unidad 2**
+# **La Arquitectura de las Redes de Comunicación**
+
+---
+
+# **[Arquitecturas  Normalizadas](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema02/Teoria.html#arquitecturas-de-comunicaciones) **
+
+* Necesaria para comunicar distintos dispositivos entre sí con estas ventajas entre otras:
+	- los fabricantes tienen productos con un mercado mayor 
+	- los clientes pueden exigir equipos basados en estándares
+
+* Las principales arquitecturas estándares:
+	- modelo de referencia OSI  
+		- es tan sólo un modelo teórico 
+		
+	- protocolos TCP/IP (1983) (antes ARPANET 60s)
+		- la arquitectura, con diferencia, más usada
+		
+	- Systems Network Architecture (SNA) de IBM (70s)
+		- aún se usa, especialmente en bancos
+---
+
+# **[OSI Open System Interconnection](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema02/Teoria.html#niveles-osi)**
+
+* Marco de referencia desarrollado por la ISO (1984) para resolver el problema de incompatibilidad entre redes.
+
+* A partir de modelos de conexión como DECnet, la SNA y TCP/IP  se creó un modelo de red que ayuda a los fabricantes a crear redes compatibles con otras redes.
+
+* Es una descripción abstracta para diseñar sistemas  de comunicaciones y protocolos de redes de ordenadores estructurados en capas   
+	- pero no se implementa ninguna arquitectura concreta 
+
+* Este modelo está dividido en siete capas.
+
+---
+
+# **OSI - El Modelo** 
+
+* Un modelo de cajas negras apiladas, formando capas
+
+* Cada **capa** contiene una **interfaz** (o colección de funciones similares o primitivas) que ofrece **servicios** a la capa superior y los recibe de la inferior
+
+* Cada capa se comunica con la capa del mismo nivel en el extremo opuesto siguiendo las reglas establecidas por un **protocolo**
+
+* Los cambios internos en una capa no deberían requerir cambios en otras capas    
+
+---
+
+# **Elementos de un Protocolo**
+
+* **Protocolo**: descripción de los formatos y reglas de intercambio de los mensajes digitales entre capas del mismo nivel
+
+* **Sintaxis**
+	- tipo de dato, posición y tamaño de los campos que forman un mensaje
+	- niveles de la señal 
+
+* **Semántica**
+	- significado de los campos de un mensaje
+	- manejo de errores 
+
+* **Temporización o sincronización**
+	- coordinación de la velocidad
+	- secuenciación
+---
+
+# **OSI - Normalización** 
+
+![Capas del modelo OSI](02-06.jpg "Capas del modelo OSI")
+
+---
+
+# Normalización por Capas  
+
+![Normalización por Capas](02-07.jpg "Normalización por Capas")
+
+---
+
+# **Elementos de Estandarización**
+
+* Especificación del protocolo
+	- que opera entre las capas del mismo nivel de los sistemas participantes
+	- y puede involucrar diferentes sistemas operativos 
+	- debe ser precisa:
+		- formato de las unidades de datos: sintaxis 
+		- significado de todos los campos: semántica
+		- secuencias permitidas de PDUs (Packet Data Units): temporización
+
+* Definición del servicio y la interfaz
+	- descripción de las funciones que se deben proporcionar, pero sin especificar cómo se deben implementar
+
+* Direccionamiento
+	- identificado por Puntos de Acceso al Servicio (SAP)
+
+---
+class: center, middle
+
+# **OSI - Capas**
+
+![OSI - Capas](02-09.jpg "OSI - Capas")
+
+
+---
+
+# [**OSI -  Entorno**](https://www.youtube.com/watch?v=iNh-62Mf0O4)
+
+![OSI - Entorno](02-10.jpg "OSI - Entorno")
+
+---
+
+# **OSI - Capas (1 y 2)**
+
+* **Física**:
+	- transmisión de una corriente de bits no estructurada sobre el medio físico
+	- trata con las características mecánicas, eléctricas, funcionales y procedimentales para acceder al medio físico  
+
+* **Enlace de datos**:
+	- delimitación y sincronización de las tramas y acceso y direccionamiento de estas al enlace físico directo entre nodos
+	- también se puede encargar del control de flujo y errores para conseguir transmisiones de datos más fiables    
+
+---
+
+# **OSI - Capas (3 y 4)**
+
+* **Red**
+	- encamina los datos entre fuente y destino   
+	- por lo que elimina la necesidad de enlaces físicos directos entre fuente y destino
+	- y oculta a las capas superiores la tecnología subyacente y el camino (saltos) recorrido por los datos
+
+* **Transporte**
+	- ofrece a la capa superior de los sistemas finales el intercambio de datos como si estuvieran conectados directamente: una especie de capa de enlace virtual sobre los saltos de la capa de red
+	- puede ofrecer servicios más fiables y orientados a la conexión: libre de errores, en secuencia, sin pérdidas, sin duplicados y con calidad de servicio
+
+---
+
+# **OSI - Capas (5, 6 y 7)**
+
+* **Sesión**:
+	- control de diálogos entre aplicaciones
+	- agrupación de datos
+	- recuperación de fallos
+
+* **Presentación**:
+	- formatos y codificación de datos 
+	- compresión de datos 
+	- encriptación
+
+* **Aplicación**:
+	- ofrece a las aplicaciones del usuario mecanismos para que accedan a los servicios OSI
+	- define los protocolos que usan las aplicaciones para intercambiar datos
+
+---
+
+# **Uso de un Retransmisor**
+
+![Uso de un Retransmisor](02-14.jpg "Uso de un Retransmisor")
+
+---
+
+# **[Arquitectura TCP/IP](https://www.coursera.org/learn/computer-networking/lecture/BTLgy/the-tcp-ip-five-layer-network-model) **
+
+* Impulsada por el DARPA del departamento de defensa de EEUU para su red de conmutación de paquetes (ARPANET), que terminó convirtiéndose en [Internet](https://www.youtube.com/watch?v=gVUE2IDwWA0)
+
+* Resultado del desarrollo práctico (1973-...):
+	- técnica efectiva para la *interconexión de redes ya existentes*: **conmutación de paquetes y un único protocolo de red (IP)**
+	- soporte de pérdidas de redes, de diversos tipos de servicios y redes, de gestión distribuida de recursos
+	- con coste eficiente y auditable
+	- facilidad para conectar nuevos equipos 
+
+* Se distinguen cinco capas: de aplicación, de extremo a extremo o de transporte, de internet, de acceso a la red y física
+
+---
+
+# **TCP/IP - Capa Física**
+
+* Interfaz Física entre dispositivos de trasmisión de datos (p.e. computadoras) y medios de trasmisión o redes
+
+* Características de los medios de trasmisión 
+
+* Niveles de las señales 
+
+* Adaptación eficaz de la señal al medio
+
+* Tasa de datos
+
+* muchas otras cosas ...
+
+---
+
+# **TCP/IP - Capa de Acceso a la Red **
+
+* Intercambio de datos entre un dispositivo  y la red inmediata (es decir, a la que está conectado directamente)  
+
+* El emisor debe proporcionar a la red la dirección de destino 
+
+* Depende del tipo de red a la que se conecta:  Ethernet, Wifi, ATM, PPP...
+
+---
+
+# **TCP/IP - Capa de Internet (IP)**
+
+* Los sistemas pueden estar conectados a diferentes redes
+
+* Funciones de encaminamiento a través de múltiples redes
+
+* Los PDU de la capa de internet  se denominan datagramas: 
+	- incluye las direcciones IP de los sistemas origen y destino 
+
+---
+
+# **TCP/IP - Capa de Transporte **
+
+* Tan sólo es necesaria en los sistemas finales (no en los routers ni en el resto de dispositivos)
+
+* Hay dos alternativas:
+	- no orientada a la conexión (UDP)
+	- orientada a la conexión (TCP)
+
+* La alternativa orientada a la conexión  exige una entrega de datos fiable y ordenada:
+	- sin pérdidas
+	- sin duplicados
+	- en la misma secuencia que fueron enviados
+
+---
+
+# **TCP/IP - Capa de Aplicación **
+
+* Contiene toda la lógica necesaria para permitir que las distintas aplicaciones de usuario tengan acceso a la interred
+
+* p.e. HTTP (www), SMTP (email), FTP (descarga de archivos), ...
+
+---
+
+# **[OSI vs. TCP/IP](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema02/Teoria.html#niveles-y-equivalencia)**
+
+![OSI vs. TCP/IP](02-21.jpg "OSI vs. TCP/IP")
+
+---
+
+# **Conceptos TCP/IP **
+
+![Conceptos TCP/IP ](02-22.jpg "Conceptos TCP/IP ")
+
+
+---
+
+# **PDUs en TCP/IP**
+
+![PDUs en TCP/IP](02-23.jpg "PDUs en TCP/IP")
+
+
+---
+
+# Otros Protocolos de Internet 
+
+![Otros Protocolos de Internet ](02-24.jpg "Otros Protocolos de Internet ")
+
+
+---
+
+# Arquitectura LAN
+
+* Capas 'propias':
+	- **capa física** 
+		- medio de transmisión
+	- **capa de enlace de datos**
+		- control de acceso al medio (**MAC**)
+		- control de enlace lógico (**LLC**)
+
+* **Topología**:
+	- **física**, según la disposición espacial de los dispositivos que forman parte de la red 
+	- **lógica**, según el recorrido de los datos entre los nodos de la red
+
+
+---
+
+# **[Topologías de las LANs](https://planificacionadministracionredes.readthedocs.io/es/latest/Tema02/Teoria.html#esquemas-lan)**
+
+![Topologías de las LANs](02-26.jpg "Topologías de las LANs")
+ 
+
+
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

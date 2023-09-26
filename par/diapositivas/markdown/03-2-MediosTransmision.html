@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LA CAPA FÍSICA: MEDIOS DE TRANSMISIÓN</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# **RAL   -     Unidad 3**
+# **LA CAPA FÍSICA: MEDIOS DE TRANSMISIÓN**
+
+---
+
+# **Medios de Trasmisión**
+
+* Soporte material (sólido, líquido o gaseoso) por el que se puede propagar ondas de energía electromagnética ([video](https://www.youtube.com/watch?v=IXxZRZxafEQ)) 
+
+	- **guiados** – mediante cable
+	- **no guiados** – sin cable
+
+* Las características y calidad de la trasmisión están determinada por el medio y la señal
+
+* Factores a tener en cuenta:
+
+	- a mayor ancho de banda mayor tasa de datos
+	- atenuación, distorsión y ruido
+	- número de receptores:
+		- en los guiados, a más nodos (multipunto) más atenuación
+
+---
+
+# **[Espectro Electromagnético (vídeo)](https://www.youtube.com/watch?v=IXxZRZxafEQ)**
+
+![Espectro Electromagnético](03-2-03.jpg "Espectro Electromagnético")
+ 
+---
+
+# **[Medios guiados: características](https://www.coursera.org/learn/computer-networking/lecture/WAp4V/cables)**  
+
+|   	| Ancho de Banda| Atenuación Típica| Retraso Típico| Espacio Repetidor|
+|---	|:---:	|:---:	|:---:	|:---:	|
+| **Par trenzado (RTB)**| 0-3.5kHz	| 0.2dB/km@1kHz| 50µs/km| 2km|
+| **Par trenzado (multipar)**| 0-1MHz-600MHz| 3dB/km@1kHz| 5µs/km| 2km|
+| **Cable coaxial**| 0-1GHz| 7dB/km@10MHz| 4µs/km| 1-9km|
+| **Fibra óptica**| 186-370THz| 0.2-0.5dB/km| 5µs/km| 40km|
+ 
+---
+
+# **Par Trenzado (P.T.)**
+
+![Par Trenzado](03-2-05.jpg "Par Trenzado") 
+
+ 
+
+---
+
+# **Par Trenzado: Aplicaciones**
+
+* Dos conductores entrelazados para cancelar:
+
+	- interferencias electromagnéticas (IEM) de fuentes externas 
+	- diafonía de los cables adyacentes (acoplamiento) 
+
+* El medio más común y económico
+* Red telefónica
+
+	- entre usuario y la central local (bucle de abonado)
+
+* Dentro de edificios
+
+	- conexión a la centralita privada (private branch exchange o PBX)
+
+* Para redes de área local (LANs)
+
+	- 10Mbps, 100Mbps, 1Gbps, 10 Gbps (... )
+
+---
+
+# **Par trenzado: Trasmisión de datos**
+
+* Analógicos 
+
+	- amplificadores cada 5 km máximo
+
+* Digitales
+
+	- se puede usar señales analógicas (banda ancha) o digitales (banda base)
+	- repetidor cada 2 km máximo
+	- tasa de datos de 100Mbps a 10Gbps (y subiendo ...) 
+
+*   Pros y contras:
+
+	- cable delgado y flexible => sencillo de manejar y barato
+	- una mala instalación puede aumentar enormemente las interferencias.
+	- corto alcance.
+
+---
+
+# **P. T.  Recubierto y No R.**
+
+* Par trenzado no recubierto (unshielded) (**UTP**)
+
+	- cables de teléfono ordinarios
+	- más baratos, más fáciles de instalar
+	- sufre de interferencias externas EM 
+
+* [Par trenzado blindado](http://en.wikipedia.org/wiki/Twisted_pair#Cable_shielding) (**STP**)
+
+	- tipos: **S/UTP** (Screened/UTP o ScTP), **STP** (SchieldedTP) y **S/STP**
+	- *screened*: el cable completo está blindado por una hoja metálica. 
+	- *shielded*: cada par está blindado por una hoja metálica.
+	- la hoja metálica protectora hace de toma de tierra (o masa). 
+	- reduce las interferencias EM.
+	- más caro, más difícil de manejar (+grueso, +pesado) 
+
+---
+
+# **UTP: Categorías**    
+
+* Cat 3
+	- hasta 16MHz
+	- par de calidad telefónica de la mayoría de las oficinas
+	- longitud de trenzado de 7.5 a 10 cm
+* Cat 4
+	- hasta 20 MHz
+* Cat 5
+	- hasta 100MHz
+	- comúnmente preinstalado en edificios nuevos de oficinas
+	- longitud de trenzado de 0.6 a 0.85 cm
+	- Cat 5E (Mejorado) 
+* Cat 6
+	- hasta 250 MHz
+* Cat 7
+	- hasta 650 MHz
+
+---
+
+# **Pares Trenzados: Comparación**
+
+![Pares Trenzados](03-2-10.jpg "Pares Trenzados")
+
+---
+
+# **Cable Coaxial**
+
+ 
+![Cable Coaxial](03-2-11.jpg "Cable Coaxial")
+ 
+
+---
+
+# **Coaxial Cable: Aplicaciones**
+
+* [Estructura](https://es.wikipedia.org/wiki/Archivo:RG-59.jpg) formada por dos conductores concéntricos:
+
+	- uno *central*, al que se le aplica una tensión eléctrica y por donde se transmiten los datos;
+	- alrededor de este una *malla metálica* que sirve como referencia (o toma) de tierra y retorno de la corriente;
+	- con una *capa aislante* (dieléctrico) entre ambos conductores;
+	- y una *cubierta* que protege el conjunto
+
+* Distribución de televisión 
+
+	- de la antena a la TV
+	- TV por cable 
+
+* Trasmisión de teléfono a larga distancia  
+
+	- puede llevar 10,000 llamadas de voz simultáneamente
+	- está reemplazándose por fibra óptica
+
+* Enlaces entre sistemas informáticos en redes LANs y redes MANs
+
+---
+
+# **Cable coaxial: Trasmisión**
+
+* El campo EM que transporta la señal sólo existe en el 
+espacio entre el conductor externo y el interno de  un 
+cable coaxial ideal:
+
+	- evita la perdida de potencia por radiación, como si fuera una antena.
+	- evita interferencias de fuentes externas
+
+* Cada tipo de cable coaxial tiene una **impedancia** (“medida de oposición a la corriente alterna”) 
+característica dependiendo del tamaño y material usado. 
+
+	- para prevenir que reflexiones en el extremo del cable causen ondas estacionarias, cualquier dispositivo 
+conectado al cable debe presentar una impedancia igual (o terminadores). 
+	- valores comunes de impedancia del  cable coaxial son 50 y 75 ohms.
+	
+
+---
+
+# **Fibra Óptica**  
+
+ 
+![Fibra Óptica](03-2-14.jpg "Fibra Óptica")
+ 
+
+---
+
+# **Fibra Óptica: Beneficios**
+
+* Es una [guía de onda](https://es.wikipedia.org/wiki/Gu%C3%ADa_de_onda) hecha de fibra de vidrio puro que conduce luz 
+
+* Compuesta de un núcleo de vidrio rodeado de un material más refractante, de forma que la luz se refleje sin escapar del núcleo ([fabricación](https://www.youtube.com/watch?v=hG-rdtMPd0M)) 
+
+* Mucha mayor capacidad
+
+	- tasa de datos de cientos/miles/millones de Gbps 
+	- [using only a single light source, scientists have set a world record by transmitting 1.8 petabits/s, twice the total global Internet traffic](https://www.dtu.dk/english/news/all-news/new-data-transmission-record?id=213f1735-036d-44c9-b229-d25d74dd3f02)
+
+*   Peso y tamaño mucho menores
+
+*   Atenuación mucho menor
+
+*   Aislamiento electromagnético
+
+*   Mayor separación entre repetidores
+
+	- decenas de kilómetros, al menos
+	- [instalación submarina](https://www.youtube.com/watch?v=iP5tejwxGGg)
+
+---
+
+# **Fibra Óptica: Aplicaciones**
+
+* Transmisiones de larga distancia (aprox. 1500km) y gran capacidad (20000 a 60000 canales de voz)  
+
+* Transmisiones metropolitanas (aprox. 10km) y alta capacidad (hasta 100000 canales)  
+
+* Acceso a áreas rurales a distancias de 40-160Km y con bajas necesidades (5000 canales de voz). Compite con las microondas
+
+* Bucle de abonado 
+
+* LANs (1/10/100/... Gbps)
+	- [Fibra Óptica Pástica (POF)](https://naseros.com/2020/09/11/cable-cobre-ethernet-vs-fibra-optica-y-fibra-optica-plastica-pof/) en [instalaciones domésticas](https://www.youtube.com/watch?v=q7QD3O5uR_U&list=PLSvxAUzJ-XScIDz1lknsvZv9myU59UDnO&index=2)  
+	- [Curso de Fibras Ópticas](https://www.youtube.com/playlist?list=PL7OLV4XJfa15VtqcPQpmn6kUcQEk1780u)
+
+ 
+---
+
+# **Fibra Óptica: Trasmisión**  
+
+* La luz se mantiene confinada en el núcleo de la fibra por [reflexión interna total](https://en.wikipedia.org/wiki/Total_internal_reflection), como una guía de ondas de 1014 a 1015 Hz (parte del espectro infrarrojo y el visible)
+
+* La fibra que permite que la luz se propague por:
+
+	- múltiples caminos se llama **multimodo** (MMF), que provoca dispersión (x las distintas longitudes), y pueden tener índice de refracción entre las capas:
+
+		- **escalonado**, con mayor dispersión
+		- **gradual**, con menor dispersión
+	
+	- único camino, paralelo a la fibra, o **monomodo** (SMF)
+
+* Fuentes de luz:
+
+	- [diodos emisores de luz](https://es.wikipedia.org/wiki/Led) (**LED**): emite luz incoherente, no láser, a mayores temperaturas y es más barato, duradero 
+	- [diodos (de inyección) láser](https://es.wikipedia.org/wiki/Diodo_l%C3%A1ser) (**ILD**): emite luz coherente, [láser](https://es.wikipedia.org/wiki/L%C3%A1ser), es más eficiente y ofrece mayor tasa de datos 
+ 
+---
+
+# **Fibra Óptica: Modos**  
+
+ 
+![Modos de Fibra Óptica](03-2-18.jpg "Modos de Fibra Óptica")
+ 
+
+---
+
+# **F.O.: Uso de frecuencias**
+
+![Frecuencias de Fibra Óptica](03-2-19.jpg "Frecuencias de Fibra Óptica")
+
+
+---
+
+# **Atenuación en medios guiados**
+
+ 
+![Modos de Fibra Óptica](03-2-20.jpg "Modos de Fibra Óptica")
+ 
+
+---
+
+# **Medios no guiados: frecuencias**
+
+* **30MHz a 1GHz - Radio**
+
+	- omnidireccional
+	- se utilizan p. e. para las emisiones de radio y televisión
+
+* **1GHz a 300GHz – Microondas** ([Rusas](https://www.youtube.com/watch?v=tQ1185dRuPU))
+
+	- muy direccional
+	- se utilizan p. e. para conexiones punto a punto y en comunicaciones vía satélite
+
+* **300GHz a 700THz  - Infrarrojo y Visible**
+
+	- altamente direccional
+	- se utilizan para conexiones punto a punto en L.O.S. y en redes PAN
+ 
+---
+
+# **Antenas**
+
+* Conductor eléctrico (o un conjunto de ellos) usado para radiar o captar energía electromagnética
+
+* En la trasmisión, las señales eléctricas de unas determinadas frecuencias provenientes del transmisor se convierte en la antena en energía electromagnética con las mismas frecuencias radiadas al entorno 
+
+* En la recepción, la señales electromagnéticas de unas determinadas frecuencias capturadas por la antena se convierten en energía eléctrica que se le suministra al receptor
+
+* En las comunicaciones bidireccionales(*full duplex*) la misma antena se suele usar para transmitir y para recibir en distintas frecuencias (canales) 
+
+	- sin embargo, hoy en día se usan cada vez más las [antenas MIMO](http://es.wikipedia.org/wiki/MIMO) o [múltiples antenas para transmitir y recibir](http://en.wikipedia.org/wiki/File:Prinzip_MIMO.svg) 
+
+---
+
+# **Patrón de radiación**
+
+* Las antenas radian en todas direcciones, aunque, según el tipo, no con la misma potencia en todas ellas
+
+* El [diagrama de radiación](https://es.wikipedia.org/wiki/Antena#Diagrama_de_radiaci%C3%B3n) es la representación gráfica de las características de radiación de una antena en función de la dirección
+
+* Una antena isotrópica (por igual en cualquier lugar) es una antena ideal que representa un punto en el espacio que radia con igual potencia en todas las direcciones, es decir,  omnidireccional o con un patrón de radiación esférico
+
+* La antena isotrópica sirve de referencia para medir el patrón de radiación de las antenas reales
+
+* [Tipos de antenas](https://es.wikipedia.org/wiki/Antena#Clasificaci%C3%B3n_cl%C3%A1sica_de_las_antenas)
+
+ 
+---
+
+# **La antena parabólica**    
+
+* Usada para las microondas terrestres y de satélites 
+
+* Una parábola es el lugar de todos los puntos equidistantes de una línea recta dada y de un punto fijo (foco) no perteneciente a esta línea (generatriz)
+
+* La fuente situada en el foco producirá ondas que se reflejan desde la parábola en paralelo al eje
+
+	- crea un haz paralelo de luz/sonido/radio, que sólo en teoría no sufrirá dispersión
+
+* Como receptor, la señal se concentra en el foco, donde se sitúa el detector 
+ 
+
+---
+
+# **La antena parabólica: diagrama** 
+
+![La antena parabólica: diagrama](03-2-25.jpg "La antena parabólica: diagrama")
+
+---
+
+# **Ganancia de una antena**
+
+* Medida de la direccionalidad de la antena
+
+* Compara la potencia de salida en la dirección privilegiada con la que radiaría una antena isotrópica en esa misma dirección:
+
+	- se mide en decibelios respecto a una isotrópica (dBi)
+	
+* El incremento de potencia en una dirección dada se consigue a expensas de  la potencia en las otras direcciones 
+
+---
+
+# **Microondas terrestres** 
+
+* Antena parabólica rígidamente fijada, para que los haces estén perfectamente enfocados 
+
+* Deben estar en la trayectoria visual de la otra antena
+
+* Telecomunicaciones de larga distancia
+
+* Más altas frecuencias dan más altas tasas de datos
+
+---
+
+# **Satélites - Microondas**           
+
+* El satélite es estación de retransmisión que recibe en una frecuencia, amplifica o repite la señal y transmite en otra frecuencia
+
+* Para comunicaciones fijas se requiere una órbita geoestacionaria: 
+
+	- altura de 35.784km
+
+* Televisión, teléfono, redes privadas  
+
+* Rango óptimo 1-10GHz (4/6GHz), aunque está saturado. 
+
+* Se está desplazando a 12/14GHz e incluso 20/30GHz.
+
+	- rangos con más atenuación, pero antenas menores y más baratas   
+	
+* [Desembalaje, pruebas e instalación de un equipo](https://www.microsiervos.com/archivo/internet/desembalaje-pruebas-instalacion-starlink-internet-cualquier-parte-mundo.html) [Starlink](https://www.starlink.com/)
+
+* [If You Could See Every Satellite, What Would The Sky Look Like? 360/VR](https://www.youtube.com/watch?v=dJNGi-bt9NM)
+---
+
+# **Satélite - Enlace punto a punto**
+
+
+![Satélite - Enlace punto a punto](03-2-29.jpg "Satélite - Enlace punto a punto")
+ 
+---
+
+# **Satélite - Enlace de difusión**  
+
+ 
+![Satélite - Enlace de difusión](03-2-30.jpg "Satélite - Enlace de difusión")
+ 
+---
+
+# **Radio - difusión**
+
+* Rango de 30MHz a 1GHz, con un patrón de radiación bastante omnidireccional, en  comparación con la mayor direccionalidad de las microondas
+
+* Radio FM, Televisión UHF y VHF 
+
+* Las antenas no necesitan estar en el mismo campo visual ('verse')
+
+* Sufre de interferencias provocadas por las reflexión de las ondas en los distintos objetos que se interponen en su trayecto 
+
+---
+
+# **Infrarrojos**
+
+* Transmisores/receptores que modulan luz infrarroja no coherente 
+
+* Transmisor y receptor deben estar en la misma línea de visión (o reflexión)
+
+* Bloqueados por las paredes, a diferencia de las microondas. Por lo que hay menos problemas de seguridad, de interferencias o de asignación de frecuencias
+
+* P.e. control remoto de TV, puertos IRDA
+
+ 
+
+ 
+
+---
+
+# **Propagación inalámbrica**
+
+* Propagación superficial [< 2MHz]
+	
+	- sigue el contorno de la tierra
+	- radio AM
+
+* Propagación aérea
+
+	- radioaficionados, emisiones internacionales de radio (REE)
+	- señal reflejada por la ionosfera (capa superior atmósfera)(en realidad es refractada)
+
+* Propagación en la trayectoria visual [>30MHz]
+
+	- puede estar más allá de la línea  de visión (Line Of Sight, LOS) óptica debido a la refracción
+
+---
+
+# **Propagación superficial**
+
+![Propagación superficial](03-2-34.jpg "Propagación superficial")
+ 
+
+---
+
+# **Propagación aérea**
+
+![Propagación aérea](03-2-35.jpg "Propagación aérea")
+
+
+---
+
+# **Propagación en la visual (LOS)**
+
+![Propagación en la visual (LOS)](03-2-36.jpg "Propagación en la visual (LOS)") 
+
+---
+
+# **Trasmisión LOS** 
+
+* Dispersión en el espacio libre
+
+	- la señal se dispersa con la distancia
+	- mayor para frecuencias menores 
+
+* Absorción atmosférica 
+
+	- vapor de agua y oxígeno absorben las señales de radio 
+	- agua más en los 22GHz, menos debajo de 15GHz
+	- oxígeno más en los 60GHz, menos debajo de 30GHz
+	- lluvia y niebla dispersan las ondas de radio 
+
+*   Multicamino
+
+	- mejor mantenerlos en línea visual, si es posible
+	- la señal puede reflejarse llegando múltiples copias  al receptor
+	- puede no recibirse ninguna señal directa
+	- puede reforzar o cancelar la señal directa 
+
+*   Refracción
+
+	- pérdidas de señal por cambios en la densidad del aire
+
+    </textarea>
+    <script src="remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
