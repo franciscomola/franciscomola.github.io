@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi P醙ina de Tareas y Pr醕ticas</title>
+    <title>Mi P谩gina de Tareas y Pr谩cticas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,7 +26,7 @@
                 background-color: #333;
             }
             100% {
-                background-color: #FF5733; /* Cambia el color a tu elecci髇 */
+                background-color: #FF5733; /* Cambia el color a tu elecci贸n */
             }
         }
 
@@ -52,7 +52,7 @@
         }
 
         nav ul li a:hover {
-            color: #FF5733; /* Cambia el color a tu elecci髇 */
+            color: #FF5733; /* Cambia el color a tu elecci贸n */
             transition: color 0.3s ease;
         }
 
@@ -113,7 +113,7 @@
         }
 
         .dropdown-label:hover {
-            background-color: #FF5733; /* Cambia el color a tu elecci髇 */
+            background-color: #FF5733; /* Cambia el color a tu elecci贸n */
         }
 
         .dropdown-content {
@@ -138,7 +138,7 @@
             animation: slideIn 2s linear infinite;
         }
 
-        /* Estilos para la animaci髇 de salto */
+        /* Estilos para la animaci贸n de salto */
         .jump-animation {
             animation: jump 1s ease-out;
             transform-origin: bottom center;
@@ -176,7 +176,7 @@
 <body>
     <audio autoplay loop id="background-music">
         <source src="musica_ascensor.mp3" type="audio/mpeg">
-        Tu navegador no admite la reproducci髇 de audio.
+        Tu navegador no admite la reproducci贸n de audio.
     </audio>
 
     <header>
@@ -188,7 +188,7 @@
             <li><a href="trimestre1.html">Primer Trimestre</a></li>
             <li><a href="trimestre2.html">Segundo Trimestre</a></li>
             <li><a href="trimestre3.html">Tercer Trimestre</a></li>
-            <li><a href="par.html">Apuntes del a駉</a></li>
+            <li><a href="par.html">Apuntes del a帽o</a></li>
         </ul>
     </nav>
 
@@ -214,10 +214,10 @@
             const gato = document.getElementById("gifDesplazante");
 
             gato.addEventListener("click", function() {
-                // Agregar la clase de animaci髇 al hacer clic
+                // Agregar la clase de animaci贸n al hacer clic
                 gato.classList.add("jump-animation");
 
-                // Eliminar la clase de animaci髇 despu閟 de 1 segundo (1000 milisegundos)
+                // Eliminar la clase de animaci贸n despu茅s de 1 segundo (1000 milisegundos)
                 setTimeout(function() {
                     gato.classList.remove("jump-animation");
                 }, 1000);
@@ -225,7 +225,7 @@
         });
 
         const audio = document.getElementById("background-music");
-        // Obt閚 una referencia al control de volumen
+        // Obt茅n una referencia al control de volumen
         const volumeControl = document.getElementById("volume-control");
         audio.volume = volumeControl.value;
         // Agrega un evento que se activa cuando cambia el valor del control de volumen
